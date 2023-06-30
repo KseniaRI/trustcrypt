@@ -1,0 +1,17 @@
+@use './shared.scss';
+
+%action-button {
+    width: 170px;
+    height: 48px;
+    border-radius: $radi-btn;
+}
+
+%social-btn {
+    border-radius: $radi-round;
+}
+
+%label {
+    border-radius: $radi-label;
+    height: 32px;
+    color: $secondary-text-color;
+}
