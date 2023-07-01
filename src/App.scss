@@ -5,7 +5,7 @@ body {
   font-family: shared.$font-family;
 }
 
-h1 {
+h1, h2 {
   color: shared.$main-title-color;
   font-weight: bold;
   line-height: auto;
@@ -14,7 +14,7 @@ h1 {
   padding: 0;
 }
 
-h2, h3{
+ h3{
   font-weight: bold;
   font-size: shared.$secondary-title-font-size;
   margin: 0;
