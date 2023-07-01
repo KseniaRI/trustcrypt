@@ -1,17 +1,17 @@
-@use './shared.scss';
+@use './shared.scss' as shared;
 
 %action-button {
     width: 170px;
     height: 48px;
-    border-radius: $radi-btn;
+    border-radius: shared.$radi-btn;
 }
 
 %social-btn {
-    border-radius: $radi-round;
+    border-radius: shared.$radi-round;
 }
 
 %label {
-    border-radius: $radi-label;
+    border-radius: shared.$radi-label;
     height: 32px;
-    color: $secondary-text-color;
+    color: shared.$secondary-text-color;
 }

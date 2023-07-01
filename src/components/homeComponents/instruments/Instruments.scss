@@ -1,0 +1,39 @@
+@use '../../../scss/shared.scss' as shared;
+
+.instruments {
+    margin-top: 160px;
+}
+
+.instruments__title {
+   font-size: shared.$main-title-font-size; 
+   margin-bottom: 32px;
+   text-align: center;
+}
+
+.instruments__text {
+    width: 720px;
+    color: shared.$main-text-color;
+    font-size: shared.$main-text-font-size;
+    margin: 0 auto;
+    margin-bottom: 64px;
+}
+
+.instruments__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.instruments__item {
+    color: shared.$main-text-color;
+
+    transition: shared.$logo-color;
+
+    &:hover,
+    &:focus {
+        color: shared.$logo-hover-color;
+    }
+}
+
+.instruments__icon {
+    fill: currentColor;
+}

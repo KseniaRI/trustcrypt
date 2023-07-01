@@ -1,0 +1,46 @@
+@use '../../../scss/shared.scss' as shared;
+@use '../../../scss/placeholder.scss';
+
+.main-section {
+    display: flex;
+    gap: 67px;
+    
+    &--normal {
+        flex-direction: row;
+    }
+
+    &--reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.main-section__img {
+    border-radius: shared.$radi-img;
+    overflow: hidden;
+}
+
+.main-section__description {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.main-section__text {
+    font-size: shared.$main-text-font-size;
+}
+
+.main-section__button {
+   @extend %action-button;
+   background-color: shared.$main-btn-color;
+   color: shared.$main-btn-text-color;
+   font-size: shared.$btn-font-size;
+
+   transition: shared.$transition-background-color;
+   transition: shared.$transition-color;
+
+   &:hover,
+   &:focus {
+    background-color: shared.$main-btn-hover-color;
+    color: shared.$main-btn-color;
+   }
+}
