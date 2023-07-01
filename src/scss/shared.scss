@@ -1,5 +1,8 @@
 $main-background-color: #11011E;
 
+$logo-hover-color: #0FAE96;
+$logo-color: #ECF1F0;
+
 $main-title-color: #ECF1F0;
 $main-text-color: #D4D4D4;
 $secondary-text-color: #ECF1F0;
@@ -9,6 +12,8 @@ $main-btn-hover-color: #F9F9F9;
 
 $social-btn-color: #ECF1F0;
 $social-btn-hover-color: #058F7B;
+
+$nav-hover-color: #058F7B;
 
 $secondary-btn-color: rgba(255, 255, 255, 0.3);
 $secondary-btn-active-color: #ECF1F0;
@@ -26,3 +31,11 @@ $radi-img: 8px;
 $radi-box: 16px;
 $radi-label: 60px;
 $radi-round: 50%;
+
+$transition-color: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-border-color: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-box-shadow: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-background-color: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-transform: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-opacity: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-outline: outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
