@@ -1,0 +1,35 @@
+@use '../../../../scss/shared.scss' as shared;
+
+.nav {
+    display: flex;
+    gap: 29px;
+    align-items: center;
+}
+
+.nav__item {
+    color: shared.$secondary-text-color;
+    font-size: shared.$main-text-font-size;
+    cursor: pointer;
+
+    transition: shared.$transition-color;
+
+    &--current {
+            position: relative;
+        }
+    
+    &--current::after {
+        content: '';
+        position: absolute;
+        bottom: -26px;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: shared.$social-btn-hover-color;
+    }
+
+    &:hover {
+        color:shared.$nav-hover-color;
+    }
+
+}

@@ -1,0 +1,36 @@
+@use '../../../../scss/shared.scss' as shared;
+
+.social {
+    display: flex;
+    gap: 20px;
+}
+
+.social__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    color: #000;
+    background-color: shared.$social-btn-color;
+    border-radius: shared.$radi-round;
+
+    transition: shared.$transition-background-color;
+    transition: shared.$transition-color;
+
+    &:hover,
+    &:focus {
+        background-color: shared.$social-btn-hover-color;
+        color: shared.$social-btn-color;
+    }
+}
+
+.social__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social__icon {
+    fill: currentColor;
+}
