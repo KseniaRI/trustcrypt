@@ -11,25 +11,23 @@ enum Pages {
 const Nav = () => {
     const location = useLocation();
 
-    const useCurrent = (page: Pages) => {
+    const getCurrent = (page: Pages) => {
         return location.pathname === page ? 'nav__item--current' : '';
     }
-    
+
     return (
         <ul className="nav">
-            <li className={`nav__item ${useCurrent(Pages.HOME)}`}>
+            <li className={`nav__item ${getCurrent(Pages.HOME)}`}>
                 <NavLink to='/'>Главная</NavLink>
             </li>
-            <li className={`nav__item ${useCurrent(Pages.PRODUCTS)}`}>
+            <li className={`nav__item ${getCurrent(Pages.PRODUCTS)}`}>
                 <NavLink to='products'>Продукты</NavLink>
             </li>
-            <li className={`nav__item ${useCurrent(Pages.NEWS)}`}>
+            <li className={`nav__item ${getCurrent(Pages.NEWS)}`}>
                 <NavLink to='news'>Новости</NavLink>
             </li>
-            <li className={`nav__item ${useCurrent(Pages.CONTACTS)}`}>
-                <NavLink to='contacts'>
-                    Контакты
-                </NavLink>
+            <li className={`nav__item ${getCurrent(Pages.CONTACTS)}`}>
+                <NavLink to='contacts'>Контакты</NavLink>
             </li>
         </ul>
     )

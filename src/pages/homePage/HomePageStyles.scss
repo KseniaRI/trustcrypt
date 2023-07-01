@@ -1,5 +1,11 @@
 @use "../../scss/shared.scss" as shared;
 
-.home__container{
+.home{
     padding-top: 136px;
+}
+
+.home__main {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
 }
