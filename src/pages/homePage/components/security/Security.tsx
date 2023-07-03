@@ -1,7 +1,7 @@
 import './Security.scss';
-import { ReactComponent as Anon } from '../../../images/icons/anon.svg';
-import { ReactComponent as Protect } from '../../../images/icons/protect.svg';
-import { ReactComponent as Check } from '../../../images/icons/check.svg';
+import { ReactComponent as Anon } from '../../../../images/icons/anon.svg';
+import { ReactComponent as Protect } from '../../../../images/icons/protect.svg';
+import { ReactComponent as Check } from '../../../../images/icons/check.svg';
 
 const Security = () => {
     return (

@@ -1,5 +1,5 @@
 import './Instruments.scss';
-import { ReactComponent as Metalsploit } from '../../../images/icons/metasploit.svg';
+import { ReactComponent as Metalsploit } from '../../../../images/icons/metasploit.svg';
 import { NavLink } from 'react-router-dom';
 
 const instruments = [Metalsploit, Metalsploit, Metalsploit, Metalsploit];

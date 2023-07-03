@@ -33,4 +33,4 @@ const FilterBtns = ({ categories, activeCategory, setActiveCategory }: Props) =>
     )
 }
 
-export default FilterBtns
+export default FilterBtns;
