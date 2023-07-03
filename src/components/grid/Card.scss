@@ -1,0 +1,17 @@
+@use '../../scss/shared.scss';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    aspect-ratio: 1/1;
+    border-radius: shared.$radi-box;
+    overflow: hidden;
+    padding: 16px;
+    background-color: shared.$card-color;
+}
+
+.card__img-wrap {
+    overflow: hidden;
+    border-radius: shared.$radi-box;
+}
