@@ -1,0 +1,16 @@
+@use '../../scss/shared.scss' as shared;
+
+.news {
+    padding-top: 64px;
+}
+
+.news__title {
+    font-size: shared.$main-text-font-size;
+    margin-bottom: 32px;
+}
+
+.news__text {
+    font-size: shared.$main-text-font-size;
+    margin-bottom: 32px;
+}
+

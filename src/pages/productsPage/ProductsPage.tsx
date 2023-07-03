@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Container from '../../components/container/Container';
 import FilterBtns from '../../components/filterBtns/FilterBtns';
-import Grid from '../../components/grid/Grid';
+import Grid from './components/grid/Grid';
 import { IProduct } from '../../types';
 import './Products.scss';
 

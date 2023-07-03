@@ -1,6 +1,6 @@
 import MainSection from "./MainSection";
-import homeRight from '../../../images/pictures/home-right.jpg';
-import homeLeft from '../../../images/pictures/home-left.jpg';
+import homeRight from '../../../../images/pictures/home-right.jpg';
+import homeLeft from '../../../../images/pictures/home-left.jpg';
 import { NavLink } from 'react-router-dom';
 
 const Main = () => {

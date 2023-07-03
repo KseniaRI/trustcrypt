@@ -1,9 +1,9 @@
 import Container from '../../components/container/Container';
 import './HomePageStyles.scss';
-import '../../components/homeComponents/mainSection/MainSection.scss'
-import Main from '../../components/homeComponents/mainSection/Main';
-import Instruments from '../../components/homeComponents/instruments/Instruments';
-import Security from '../../components/homeComponents/security/Security';
+import './components/mainSection/MainSection.scss'
+import Main from './components/mainSection/Main';
+import Instruments from './components/instruments/Instruments';
+import Security from './components/security/Security';
 
 const HomePage = () => {
     return (

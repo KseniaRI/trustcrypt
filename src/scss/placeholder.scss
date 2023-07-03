@@ -12,7 +12,7 @@
 }
 
 %label {
+    font-size: shared.$label-text;
+    padding: 8px 12px;
     border-radius: shared.$radi-label;
-    height: 32px;
-    color: shared.$secondary-text-color;
 }

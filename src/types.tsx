@@ -6,3 +6,11 @@ export interface IProduct {
     path: string;
 }
 
+export interface IArticle {
+    author: string;
+    description: string;
+    publishedAt: string;
+    title: string;
+    urlToImage: string;
+}
+
