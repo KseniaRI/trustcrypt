@@ -1,0 +1,29 @@
+@use '../../scss/placeholder.scss';
+@use '../../scss/shared.scss';
+
+.filter {
+    display: flex;
+    gap: 24px;
+}
+
+.filter__btn {
+    @extend %action-button;
+    margin-bottom: 32px;
+    color: shared.$main-btn-text-color;
+    background-color: shared.$secondary-btn-color;
+    border: none;
+    
+    transition: shared.$transition-background-color;
+    transition: shared.$transition-color;
+
+    &:hover,
+    &:focus {
+        background-color: shared.$secondary-btn-hover-color;
+    }
+
+    &--active {
+        background-color: shared.$secondary-btn-active-color;
+        color: shared.$secondary-btn-active-text-color;
+    }
+}
+
