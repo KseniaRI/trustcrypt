@@ -1,7 +1,7 @@
 @use '../../../../scss/shared.scss' as shared;
 @use '../../../../scss/placeholder.scss';
 
-.main-section {
+.hero-section {
     display: flex;
     gap: 67px;
     
@@ -14,22 +14,22 @@
     }
 }
 
-.main-section__img {
+.hero-section__img {
     border-radius: shared.$radi-img;
     overflow: hidden;
 }
 
-.main-section__description {
+.hero-section__description {
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
 
-.main-section__text {
+.hero-section__text {
     font-size: shared.$main-text-font-size;
 }
 
-.main-section__button {
+.hero-section__button {
    @extend %action-button;
    background-color: shared.$main-btn-color;
    color: shared.$main-btn-text-color;

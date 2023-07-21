@@ -14,3 +14,9 @@ export interface IArticle {
     urlToImage: string;
 }
 
+export interface IContent {
+    title: string;
+    text: string;
+    direction: "normal" | "reverse";
+    src: string;
+}

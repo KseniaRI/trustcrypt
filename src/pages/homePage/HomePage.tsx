@@ -1,15 +1,15 @@
 import Container from '../../components/container/Container';
-import './HomePageStyles.scss';
-import './components/mainSection/MainSection.scss'
-import Main from './components/mainSection/Main';
+import Hero from './components/hero/Hero';
 import Instruments from './components/instruments/Instruments';
 import Security from './components/security/Security';
+import './HomePageStyles.scss';
+import './components/hero/HeroSection.scss'
 
 const HomePage = () => {
     return (
         <div className="home">
             <Container>
-                <Main />
+                <Hero />
                 <Instruments />
                 <Security/>
             </Container>

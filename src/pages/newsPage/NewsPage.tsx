@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Skeleton} from 'antd';
 import { IArticle} from '../../types';
 import Container from '../../components/container/Container';
 import Article from './components/Article';
@@ -7,34 +8,42 @@ import './newsPage.scss'
 
 const NewsPage = () => {
     const [articles, setArticles] = useState<IArticle[] | []>([]);
+    const [articlesAreLoading, setArticlesAreLoading] = useState(true);
 
     useEffect(() => {
-        const getNews = async () => {
+        const getArticles = async () => {
             try {
                 const articlesData = await fetchNews(); 
                 setArticles(articlesData);
             } catch (error) {
-                console.log(error);
+                alert(`Ошибка загрузки: ${error}`);
+            } finally {
+                setArticlesAreLoading(false);
             }
         }
-        getNews();
+        getArticles();
     }, [])
 
-    const news = <ul>
-                    {articles.length > 0 && articles.map(article => (
-                            <li key={article.title}>
-                                <Article article={article} />
-                            </li>
-                        )
-                    )}
-                </ul>
-   
+    const articlesList = articles.length > 0 && (
+        <ul>
+            {articles.map(article => (
+                    <li key={article.title}>
+                        <Article article={article} />
+                    </li>
+                )
+            )}
+        </ul>
+    );
+            
     return (
         <div className="news">
             <Container>
                 <h1 className='news__title'>Последние события в мире киберпространства</h1>
                 <p className='news__text'>Ознакомьтесь с информацией, чтобы быть в курсе новейших киберугроз <br/> и получить советы экспертов по безопасности. </p>
-                {news}
+                <div className='spin-wrap'>
+                    <Skeleton loading={articlesAreLoading} paragraph={{ rows: 10 }} active />
+                </div>
+                {articlesList}
             </Container>
         </div>
     )

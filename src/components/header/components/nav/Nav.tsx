@@ -1,34 +1,50 @@
 import './Nav.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 
-enum Pages {
+enum PathToPage {
     "HOME" = "/",
     "NEWS" = "/news",
-    "CONTACTS" = "/contacts",
     "PRODUCTS" = "/products"
-}
+};
+
+enum Page {
+    "HOME" = "HOME",
+    "NEWS" = "NEWS",
+    "PRODUCTS" = "PRODUCTS"
+};
+
+enum PageTraduction {
+    "HOME" = "Главная",
+    "NEWS" = "Новости",
+    "PRODUCTS" = "Продукты"
+};
+    
 
 const Nav = () => {
     const location = useLocation();
+    const pages: Page[] = [Page.HOME, Page.NEWS, Page.PRODUCTS];
 
-    const getCurrent = (page: Pages) => {
-        return location.pathname === page ? 'nav__item--current' : '';
-    }
+    const getCurrentClass = (path: PathToPage) => {
+        return location.pathname === path ? 'nav__item--current' : '';
+    };
+
+    const listOfPages = pages.map(page => {
+        const path = PathToPage[page];
+        const currentClass = getCurrentClass(path);
+        const pageName = PageTraduction[page];
+
+        return (
+            <li key={path} className={`nav__item ${currentClass}`}>
+                <NavLink to={path}>
+                    {pageName}
+                </NavLink>
+            </li>
+        )
+    });
 
     return (
         <ul className="nav">
-            <li className={`nav__item ${getCurrent(Pages.HOME)}`}>
-                <NavLink to='/'>Главная</NavLink>
-            </li>
-            <li className={`nav__item ${getCurrent(Pages.PRODUCTS)}`}>
-                <NavLink to='products'>Продукты</NavLink>
-            </li>
-            <li className={`nav__item ${getCurrent(Pages.NEWS)}`}>
-                <NavLink to='news'>Новости</NavLink>
-            </li>
-            <li className={`nav__item ${getCurrent(Pages.CONTACTS)}`}>
-                <NavLink to='contacts'>Контакты</NavLink>
-            </li>
+            {listOfPages}
         </ul>
     )
 }

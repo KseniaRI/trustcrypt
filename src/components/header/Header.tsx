@@ -1,7 +1,7 @@
 import Container from "../container/Container";
 import Logo from "./components/logo/Logo";
 import Nav from "./components/nav/Nav";
-import Social from "./components/social/Social";
+import SocialList from "./components/social/SocialList";
 import './Header.scss';
  
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
                 <Logo />
                 <div className="header__nav-social">
                     <Nav/>
-                    <Social/>
+                    <SocialList/>
                 </div> 
             </div>
         </Container>

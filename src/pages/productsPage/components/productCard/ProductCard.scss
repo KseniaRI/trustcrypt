@@ -1,6 +1,6 @@
 @use '../../../../scss/shared.scss' as shared;
 
-.card {
+.product-card {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -11,7 +11,7 @@
     background-color: shared.$card-color;
 }
 
-.card__img-wrap {
+.product-card__img-wrap {
     overflow: hidden;
     border-radius: shared.$radi-box;
 }
