@@ -24,7 +24,7 @@ const NewsPage = () => {
         getArticles();
     }, [])
 
-    const articlesList = articles.length > 0 && (
+    const articlesList = articles?.length > 0 && (
         <ul>
             {articles.map(article => (
                     <li key={article.title}>
