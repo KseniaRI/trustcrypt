@@ -6,12 +6,20 @@ export interface IProduct {
     path: string;
 }
 
+// export interface IArticle {
+//     author: string;
+//     description: string;
+//     publishedAt: string;
+//     title: string;
+//     urlToImage: string;
+// }
+
 export interface IArticle {
     author: string;
-    description: string;
-    publishedAt: string;
+    summary: string;
+    published_date: string;
     title: string;
-    urlToImage: string;
+    media: string;
 }
 
 export interface IContent {

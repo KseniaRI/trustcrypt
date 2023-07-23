@@ -6,18 +6,19 @@ interface Props {
 }
 
 const Article = ({ article }: Props) => {
-    const { title, urlToImage, description, author, publishedAt } = article;
+    // const { title, urlToImage, description, author, publishedAt } = article;
+    const { title, media, summary, author, published_date } = article;
      
-    const dateObj = new Date(publishedAt);
+    const dateObj = new Date(published_date);
     const date = dateObj.toLocaleString();
 
     return (
         <div className='article'>
-            <img className='article__img' src={urlToImage} alt={title} width={380} />
+            <img className='article__img' src={media} alt={title} width={320} height={320}/>
             <div className='article__content'>
                 <h3 className='article__title'>{title}</h3>
-                <p className='article__description'>{description}</p>
-                <p className='article__label'>{author}</p>
+                <p className='article__description'>{summary}</p>
+                {author && <p className='article__label'>{author}</p>}
                 <p className='article__label'>{date}</p>
             </div>
         </div>
