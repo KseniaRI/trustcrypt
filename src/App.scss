@@ -1,4 +1,5 @@
 @use "./scss/shared.scss" as shared;
+@import '../node_modules/modern-normalize/modern-normalize.css';
 
 body {
   background-color: shared.$main-background-color;
@@ -17,8 +18,6 @@ h1, h2 {
  h3{
   font-weight: bold;
   font-size: shared.$secondary-title-font-size;
-  margin: 0;
-  padding: 0;
   color: shared.$main-text-color;
 }
 

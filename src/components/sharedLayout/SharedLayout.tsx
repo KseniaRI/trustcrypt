@@ -7,13 +7,13 @@ import './SharedLayout.scss';
 
 const SharedLayout = () => {
     return (
-        <>
+        <div className="layout-container">
             <Header />
             <Suspense fallback={<Spin size="large"/>}>
                 <Outlet/>
             </Suspense>
             <Footer/>
-        </>
+        </div>
     )
 }
 

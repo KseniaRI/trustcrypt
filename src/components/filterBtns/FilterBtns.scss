@@ -3,6 +3,7 @@
 
 .filter {
     display: flex;
+    flex-wrap: wrap;
     gap: 24px;
 }
 
@@ -24,6 +25,10 @@
     &--active {
         background-color: shared.$secondary-btn-active-color;
         color: shared.$secondary-btn-active-text-color;
+    }
+
+    @media screen and (max-width: 767px){
+        width: 60px;
     }
 }
 

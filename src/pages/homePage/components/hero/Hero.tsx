@@ -2,6 +2,7 @@ import HeroSection from "./HeroSection";
 import homeRight from '../../../../images/pictures/home-right.jpg';
 import homeLeft from '../../../../images/pictures/home-left.jpg';
 import { IContent } from '../../../../types';
+import './HeroSection.scss'
 
 const Hero = () => {
 
@@ -27,9 +28,11 @@ const Hero = () => {
     ));
 
     return (
-        <ul className='home__hero'>
-            {heroSections}
-        </ul>
+        <section>
+            <ul className='hero'>
+                {heroSections}
+            </ul>
+        </section>
     )
 }
 

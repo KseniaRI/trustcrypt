@@ -1,9 +1,5 @@
 @use '../../../../scss/shared.scss' as shared;
 
-.instruments {
-    margin-top: 160px;
-}
-
 .instruments__title {
    font-size: shared.$main-title-font-size; 
    margin-bottom: 32px;
@@ -11,16 +7,34 @@
 }
 
 .instruments__text {
-    width: 720px;
     color: shared.$main-text-color;
     font-size: shared.$main-text-font-size;
     margin: 0 auto;
     margin-bottom: 64px;
+    text-align: center;
+    
+    @media screen and (min-width: 768px) {
+        text-align: left;
+    }
 }
 
 .instruments__list {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 .instruments__item {

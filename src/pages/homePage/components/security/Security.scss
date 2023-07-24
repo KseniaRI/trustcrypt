@@ -1,9 +1,5 @@
 @use "../../../../scss/shared.scss" as shared;
 
-.security {
-    margin-top: 160px;
-}
-
 .security__title {
     font-size: shared.$main-title-font-size;
     margin-bottom: 32px;
@@ -11,33 +7,46 @@
 }
 
 .security__text {
-    width: 720px;
     color: shared.$main-text-color;
     font-size: shared.$main-text-font-size;
     margin: 0 auto;
     margin-bottom: 64px;
+    text-align: center;
 }
 
 .security__list {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 16px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 .security__item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    width: 412px;
-    height: 260px;
+    height: 90px;
     background-color: shared.$card-color;
     border-width: 3px;
     border-style: solid;
     border-image: linear-gradient(to top left, #027463, #fff, #0FAE96 ) 1;
     color: shared.$logo-color;
+    padding: 16px;
 
     transition: shared.$transition-border-image;
     transition: shared.$transition-color;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        flex-basis: calc((100% - 16px * 2) / 3);
+        height: 260px;
+    }
 
         &:hover {
             border-image: linear-gradient(to bottom right, #027463, #fff, #0FAE96) 1;
@@ -49,13 +58,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border-radius: shared.$radi-round;
     background-color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 16px;
+    margin-right: 16px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 16px;
+        margin-right: 0;
+        width: 100px;
+        height: 100px;
+    }
 }
 
 .security__icon {
-    fill: currentColor
+    fill: currentColor;
+    width: 29px;
+    height: 29px;
+
+    @media screen and (min-width: 768px) {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.security__capture {
+    @media screen and (min-width: 768px) {
+        text-align: center;
+    }
 }

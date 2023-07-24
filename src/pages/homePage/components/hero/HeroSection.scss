@@ -1,32 +1,76 @@
 @use '../../../../scss/shared.scss' as shared;
 @use '../../../../scss/placeholder.scss';
 
+.hero{
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+
+    @media screen and (min-width: 768px) {
+        gap: 160px;
+    }
+}
 .hero-section {
     display: flex;
-    gap: 67px;
-    
-    &--normal {
-        flex-direction: row;
-    }
+    flex-direction: column-reverse;
+    gap: 32px;
 
-    &--reverse {
-        flex-direction: row-reverse;
+    @media screen and (min-width: 768px){
+        justify-content: space-between;
+    
+        &--normal {
+            flex-direction: row;
+        }
+    
+        &--reverse {
+            flex-direction: row-reverse;
+        }
     }
 }
 
-.hero-section__img {
+.hero-section__img-wrap {
     border-radius: shared.$radi-img;
     overflow: hidden;
+}
+
+.hero-section__img{
+    object-fit: contain;
+    object-position: center;
+    border-radius: shared.$radi-img;
+    width: 100%;
 }
 
 .hero-section__description {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    align-items: center;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        align-items: flex-start;
+    }
+}
+
+.hero-section__title {
+    text-align: center;
+    margin-bottom: 16px;
+    
+    @media screen and (min-width: 768px) {
+        text-align: left;
+        margin-bottom: 32px;
+    }
 }
 
 .hero-section__text {
+    display: inline-block;
     font-size: shared.$main-text-font-size;
+    text-align: center;
+    margin-bottom: 16px;
+
+    @media screen and (min-width: 768px) {
+        text-align: left;
+        margin-bottom: 32px;
+    }
 }
 
 .hero-section__button {
@@ -42,5 +86,9 @@
    &:focus {
     background-color: shared.$main-btn-hover-color;
     color: shared.$main-btn-color;
+   }
+
+   @media screen and (max-width: 767px) {
+        width: 236px;
    }
 }

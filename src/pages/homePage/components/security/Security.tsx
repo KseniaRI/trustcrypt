@@ -2,6 +2,7 @@ import './Security.scss';
 import { ReactComponent as Anon } from '../../../../images/icons/anon.svg';
 import { ReactComponent as Protect } from '../../../../images/icons/protect.svg';
 import { ReactComponent as Check } from '../../../../images/icons/check.svg';
+import Section from '../../../../components/section/Section';
 
 const Security = () => {
 
@@ -28,19 +29,19 @@ const Security = () => {
                 <div className='security__icon-wrap'>
                     <Svg className='security__icon' />
                 </div>
-                <p>{text}</p>
+                <p className='security__capture'>{text}</p>
             </li>
         )
     });
 
     return (
-        <div className='security'>
+        <Section>
             <h2 className='security__title'>Наши продукты направлены на вашу безопасность. </h2>
             <p className='security__text'>Мы придерживаемся в своей работе простого принципа: детектировать и блокировать любую вредоносную атаку.</p>
             <ul className='security__list'>
                 {securityCharacteristics}
             </ul>
-        </div>
+        </Section>
     )
 }
 

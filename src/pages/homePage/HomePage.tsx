@@ -1,8 +1,8 @@
-import Container from '../../components/container/Container';
 import Hero from './components/hero/Hero';
 import Instruments from './components/instruments/Instruments';
 import Security from './components/security/Security';
-import './HomePageStyles.scss';
+import Container from '../../components/container/Container';
+import './HomePage.scss';
 import './components/hero/HeroSection.scss'
 
 const HomePage = () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
             <Container>
                 <Hero />
                 <Instruments />
-                <Security/>
+                <Security />
             </Container>
         </div>
     )

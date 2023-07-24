@@ -1,21 +1,37 @@
+import Media from 'react-media';
 import Container from "../container/Container";
 import Logo from "./components/logo/Logo";
-import Nav from "./components/nav/Nav";
-import SocialList from "./components/social/SocialList";
+import NavigationGroup from "./components/navigationGroup/NavigationGroup";
+import MobileMenu from '../mobileMenu/MobileMenu';
 import './Header.scss';
  
 const Header = () => {
 
+    const navigation = (
+        <div>
+            <Media queries={{
+                small: "(max-width: 767px)",
+                large: "(min-width: 768px)"
+            }}>
+                {matches => (
+                    <>
+                        {matches.small && <MobileMenu/>}
+                        {matches.large && <NavigationGroup/>}
+                    </>
+            )}
+            </Media>
+        </div>
+    ); 
+
     return (
-        <Container>
-            <div className="header">
-                <Logo />
-                <div className="header__nav-social">
-                    <Nav/>
-                    <SocialList/>
-                </div> 
-            </div>
-        </Container>
+        <div className="header">
+            <Container>
+                <div className='header__container'>
+                    <Logo />
+                    {navigation}
+                </div>
+            </Container>
+        </div>
     )
 }
 

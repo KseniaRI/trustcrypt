@@ -3,7 +3,7 @@ import Container from '../../components/container/Container';
 import FilterBtns from '../../components/filterBtns/FilterBtns';
 import ProductsGrid from './components/productsGrid/ProductsGrid';
 import { IProduct } from '../../types';
-import './Products.scss';
+import './ProductsPage.scss';
 
 const products: IProduct[] = require('./products.json');
 

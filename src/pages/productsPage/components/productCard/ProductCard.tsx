@@ -14,7 +14,7 @@ const ProductCard = ({ cardContent }: Props) => {
         <div className="product-card">
             <div className='product-card__img-wrap'>
                 <Spin spinning={!imgSrc} size='large'>
-                    <img src={imgSrc} alt={name} />
+                    <img className='product-card__img' src={imgSrc} alt={name} />
                 </Spin>
             </div>
             <h3>{name}</h3>
