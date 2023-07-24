@@ -19,6 +19,8 @@ h1, h2 {
   font-weight: bold;
   font-size: shared.$secondary-title-font-size;
   color: shared.$main-text-color;
+  margin: 0;
+  padding: 0;
 }
 
 p {
