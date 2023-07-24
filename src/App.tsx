@@ -1,13 +1,13 @@
 import './App.scss';
 import HomePage from './pages/homePage/HomePage';
-import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import NewsPage from './pages/newsPage/NewsPage';
 import SharedLayout from './components/sharedLayout/SharedLayout';
 import ProductsPage from './pages/productsPage/ProductsPage';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<SharedLayout />}>
           <Route index element={<HomePage />} />
@@ -16,7 +16,7 @@ function App() {
         </Route>
         <Route path="*" element={<HomePage />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

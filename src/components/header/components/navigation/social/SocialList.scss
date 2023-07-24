@@ -1,4 +1,5 @@
-@use '../../../../scss/shared.scss' as shared;
+@use '../../../../../scss/shared.scss' as shared;
+@use '../../../../../scss/placeholder.scss';
 
 .social {
     display: flex;
@@ -6,14 +7,11 @@
 }
 
 .social__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %social-btn;
     width: 24px;
     height: 24px;
     color: #000;
     background-color: shared.$social-btn-color;
-    border-radius: shared.$radi-round;
 
     transition: shared.$transition-background-color;
     transition: shared.$transition-color;

@@ -1,5 +1,5 @@
-import './Nav.scss';
 import { NavLink, useLocation } from 'react-router-dom';
+import './NavToPages.scss';
 
 enum PathToPage {
     "HOME" = "/",
@@ -28,7 +28,7 @@ const Nav = () => {
         return location.pathname === path ? 'nav__item--current' : '';
     };
 
-    const listOfPages = pages.map(page => {
+    const navItems = pages.map(page => {
         const path = PathToPage[page];
         const currentClass = getCurrentClass(path);
         const pageName = PageTraduction[page];
@@ -44,7 +44,7 @@ const Nav = () => {
 
     return (
         <ul className="nav">
-            {listOfPages}
+            {navItems}
         </ul>
     )
 }

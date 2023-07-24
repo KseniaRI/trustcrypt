@@ -6,7 +6,6 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    /* Для того чтобы grid занимал всю высоту окна браузера */
     grid-template-areas:
         "header"
         "content"
@@ -15,15 +14,12 @@
 
 .header {
     grid-area: header;
-    /* Поместить Header в область с именем "header" */
 }
 
 .footer {
     grid-area: footer;
-    /* Поместить Footer в область с именем "footer" */
 }
 
 .content {
     grid-area: content;
-    /* Поместить контент в область с именем "content" */
 }

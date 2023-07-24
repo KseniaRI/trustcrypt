@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './HeroSection.scss'
-import { IContent } from '../../../../types';
+import { IContent } from '../../../../../types';
 
 interface Props {
     content: IContent;

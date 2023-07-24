@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { Drawer } from "antd";
-import NavigationGroup from "../header/components/navigationGroup/NavigationGroup";
+import NavigationGroup from "../header/components/navigation/navigationGroup/NavigationGroup";
 import { ReactComponent as CloseMenuIcon } from '../../images/icons/close-btn.svg';
 import { ReactComponent as OpenMenuIcon } from '../../images/icons/menu-btn.svg';
 import './MobileMenu.scss';
 
 const MobileMenu = () => {
-    const [open, setOpen] = useState(false);
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
 
     const showHideDrawer = () => {
-      setOpen(!open);
+        setMenuIsOpen(!menuIsOpen);
     };
 
     const onClose = () => {
-      setOpen(false);
-      };
+        setMenuIsOpen(false);
+    };
     
-    const menuIcon = open ? <CloseMenuIcon /> : <OpenMenuIcon />;
+    const menuIcon = menuIsOpen ? <CloseMenuIcon /> : <OpenMenuIcon />;
     
     return (
         <div className="menu">
@@ -28,10 +28,10 @@ const MobileMenu = () => {
                 closable={false}
                 onClose={onClose}
                 onClick={onClose}
-                open={open}
+                open={menuIsOpen}
                 rootClassName="mobile-menu"
             >
-                <NavigationGroup  /> 
+                <NavigationGroup/> 
             </Drawer>
         </div>
     )

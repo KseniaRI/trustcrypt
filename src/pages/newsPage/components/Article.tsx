@@ -15,7 +15,7 @@ const Article = ({ article }: Props) => {
     return (
         <div className='article'>
             <div className="article__img-wrap">
-                <img className='article__img' src={media} alt={title} width={320} height={320}/>
+                <img className='article__img' src={media} alt={title}/>
             </div>
             <div className='article__content'>
                 <h3 className='article__title'>{title}</h3>

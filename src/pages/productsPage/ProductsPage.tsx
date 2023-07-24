@@ -10,7 +10,12 @@ const products: IProduct[] = require('./products.json');
 const ProductsPage = () => {
     const [activeCategory, setActiveCategory] = useState('all');
 
-    const uniqueCategories = products.map(product => product.category).filter((category, index, arr) => arr.indexOf(category) === index);
+    const uniqueCategories = products
+        .map(product => product.category)
+        .filter((category, index, arr) => arr.indexOf(category) === index);
+
+    const productsFilteredByActiveCategory = products.filter(product => product.category === activeCategory);
+    const gridItems = activeCategory === "all" ? products : productsFilteredByActiveCategory;
 
     return (
         <div className="products">
@@ -22,10 +27,7 @@ const ProductsPage = () => {
                     activeCategory={activeCategory}
                     setActiveCategory={setActiveCategory}
                 />
-                <ProductsGrid
-                    gridItems={products}
-                    activeCategory={activeCategory}
-                />
+                <ProductsGrid gridItems={gridItems}/>
             </Container>
         </div>
     )

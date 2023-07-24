@@ -23,7 +23,6 @@ const Security = () => {
 
     const securityCharacteristics = securityDetails.map(({ icon, text }, index) => {
         const Svg = icon;
-
         return (
             <li className='security__item' key={`security-${index}`}>
                 <div className='security__icon-wrap'>

@@ -1,8 +1,8 @@
-import HeroSection from "./HeroSection";
+import HeroSection from "./components/HeroSection";
 import homeRight from '../../../../images/pictures/home-right.jpg';
 import homeLeft from '../../../../images/pictures/home-left.jpg';
 import { IContent } from '../../../../types';
-import './HeroSection.scss'
+import './components/HeroSection.scss';
 
 const Hero = () => {
 

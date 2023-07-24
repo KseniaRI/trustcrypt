@@ -4,17 +4,13 @@ import './ProductsGrid.scss';
 
 interface Props {
     gridItems: IProduct[] ;
-    activeCategory: string;
 }
 
-const ProductsGrid = ({ gridItems, activeCategory }: Props) => {
+const ProductsGrid = ({ gridItems }: Props) => {
     
-    const gridItemsFilteredByActiveCategory = gridItems.filter(gridItem => gridItem.category === activeCategory);
-    const gridElements = activeCategory === "all" ? gridItems : gridItemsFilteredByActiveCategory;
-    
-    const productItems = gridElements.map(gridElement => (
-        <li key={gridElement.id}>
-            <ProductCard cardContent={gridElement} />
+    const productItems = gridItems.map(gridItem => (
+        <li key={gridItem.id}>
+            <ProductCard cardContent={gridItem} />
         </li>
     )
     );         

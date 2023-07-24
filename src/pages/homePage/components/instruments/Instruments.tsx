@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as Metalsploit } from '../../../../images/icons/metasploit.svg';
-import './Instruments.scss';
 import Section from '../../../../components/section/Section';
+import './Instruments.scss';
 
 const instruments = [Metalsploit, Metalsploit, Metalsploit, Metalsploit];
 
@@ -9,7 +9,6 @@ const Instruments = () => {
 
     const instrumentsItems = instruments.map((instrument, index) => {
         const InstrumentSvg = instrument;
-        
         return (
             <li key={`${instrument}-${index}`} className='instruments__item'>
                 <NavLink to='products'>

@@ -12,6 +12,16 @@ const FilterBtns = ({ categories, activeCategory, setActiveCategory }: Props) =>
         return activeCategory === category ? 'filter__btn--active' : '';
     };
     
+    const categoryButtons = categories.map(category => (
+        <button
+            className={`filter__btn ${setActiveStyles(category)}`}
+            key={category}
+            onClick={() => setActiveCategory(category)}
+        >
+            {category}
+        </button>
+    ));
+
     return (
         <div className="filter">
             <button
@@ -20,15 +30,7 @@ const FilterBtns = ({ categories, activeCategory, setActiveCategory }: Props) =>
             >
                 Все
             </button>
-            {categories.map(category => (
-                <button
-                    className={`filter__btn ${setActiveStyles(category)}`}
-                    key={category}
-                    onClick={()=>setActiveCategory(category)}
-                >
-                    {category}
-                </button>
-            ))}
+            {categoryButtons}
         </div>
     )
 }

@@ -1,11 +1,11 @@
-import Nav from "../nav/Nav"
+import NavToPages from "../navToPages/NavToPages"
 import SocialList from "../social/SocialList";
 import './NavigationGroup.scss';
 
 const NavigationGroup = () => {
     return (
         <div className="navigation-group">
-            <Nav />
+            <NavToPages />
             <SocialList/>
         </div>
     )
