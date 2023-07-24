@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import NewsPage from './pages/newsPage/NewsPage';
 import SharedLayout from './components/sharedLayout/SharedLayout';
 import ProductsPage from './pages/productsPage/ProductsPage';
+import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path='products' element={<ProductsPage />} />
           <Route path='news' element={<NewsPage />} />
+          <Route path='favorites' element={<FavoritesPage/>} />
         </Route>
         <Route path="*" element={<HomePage />} />
       </Routes>

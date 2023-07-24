@@ -4,25 +4,28 @@ import './NavToPages.scss';
 enum PathToPage {
     "HOME" = "/",
     "NEWS" = "/news",
-    "PRODUCTS" = "/products"
+    "PRODUCTS" = "/products",
+    "FAVORITES" = "/favorites"
 };
 
 enum Page {
     "HOME" = "HOME",
     "NEWS" = "NEWS",
-    "PRODUCTS" = "PRODUCTS"
+    "PRODUCTS" = "PRODUCTS",
+    "FAVORITES" = "FAVORITES"
 };
 
 enum PageTraduction {
     "HOME" = "Главная",
     "NEWS" = "Новости",
-    "PRODUCTS" = "Продукты"
+    "PRODUCTS" = "Продукты",
+    "FAVORITES" = "Избранные"
 };
     
 
 const Nav = () => {
     const location = useLocation();
-    const pages: Page[] = [Page.HOME, Page.NEWS, Page.PRODUCTS];
+    const pages: Page[] = [Page.HOME, Page.NEWS, Page.PRODUCTS, Page.FAVORITES];
 
     const getCurrentClass = (path: PathToPage) => {
         return location.pathname === path ? 'nav__item--current' : '';

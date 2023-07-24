@@ -10,7 +10,7 @@ const ProductsGrid = ({ gridItems }: Props) => {
     
     const productItems = gridItems.map(gridItem => (
         <li key={gridItem.id}>
-            <ProductCard cardContent={gridItem} />
+            <ProductCard product={gridItem} />
         </li>
     )
     );         

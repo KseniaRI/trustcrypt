@@ -11,10 +11,17 @@
 }
 
 .product-card__img-wrap {
+    position: relative;
     overflow: hidden;
     border-radius: 35px;
 }
 
 .product-card__img{
     width: 100%;
+}
+
+.product-card__favorite {
+    position: absolute;
+    bottom: 20px;
+    right: 20px
 }
