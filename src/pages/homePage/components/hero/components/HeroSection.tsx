@@ -2,11 +2,11 @@ import { NavLink } from 'react-router-dom';
 import './HeroSection.scss'
 import { IContent } from '../../../../../types';
 
-interface Props {
+interface HeroSectionProps {
     content: IContent;
 }
 
-const HeroSection = ({ content }: Props) => {
+const HeroSection = ({ content }: HeroSectionProps) => {
     const { direction, title, text, src } = content;
 
     return (

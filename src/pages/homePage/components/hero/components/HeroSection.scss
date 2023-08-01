@@ -1,5 +1,8 @@
-@use '../../../../../scss/shared.scss' as shared;
-@use '../../../../../scss/placeholder.scss';
+@use '../../../../../scss/variables/colors.scss' as colors;
+@use '../../../../../scss/variables/radii.scss' as radii;
+@use '../../../../../scss/variables/transitions.scss' as transitions;
+@use '../../../../../scss/variables/font-sizes.scss' as font-sizes;
+@use '../../../../../scss/placeholders/buttons.scss';
 
 .hero{
     display: flex;
@@ -29,14 +32,14 @@
 }
 
 .hero-section__img-wrap {
-    border-radius: shared.$radi-img;
+    border-radius: radii.$radi-img;
     overflow: hidden;
 }
 
 .hero-section__img{
     object-fit: contain;
     object-position: center;
-    border-radius: shared.$radi-img;
+    border-radius: radii.$radi-img;
     width: 100%;
 }
 
@@ -63,7 +66,7 @@
 
 .hero-section__text {
     display: inline-block;
-    font-size: shared.$main-text-font-size;
+    font-size: font-sizes.$main-text-font-size;
     text-align: center;
     margin-bottom: 16px;
 
@@ -75,17 +78,17 @@
 
 .hero-section__button {
    @extend %action-button;
-   background-color: shared.$main-btn-color;
-   color: shared.$main-btn-text-color;
-   font-size: shared.$btn-font-size;
+   background-color: colors.$main-btn-color;
+   color: colors.$main-btn-text-color;
+   font-size: font-sizes.$btn-font-size;
 
-   transition: shared.$transition-background-color;
-   transition: shared.$transition-color;
+   transition: transitions.$transition-background-color;
+   transition: transitions.$transition-color;
 
    &:hover,
    &:focus {
-    background-color: shared.$main-btn-hover-color;
-    color: shared.$main-btn-color;
+    background-color: colors.$main-btn-hover-color;
+    color: colors.$main-btn-color;
    }
 
    @media screen and (max-width: 767px) {

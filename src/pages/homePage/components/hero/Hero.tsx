@@ -1,6 +1,6 @@
 import HeroSection from "./components/HeroSection";
-import homeRight from '../../../../images/pictures/home-right.jpg';
-import homeLeft from '../../../../images/pictures/home-left.jpg';
+import homeRight from '../../../../assets/images/pictures/home-right.jpg';
+import homeLeft from '../../../../assets/images/pictures/home-left.jpg';
 import { IContent } from '../../../../types';
 import './components/HeroSection.scss';
 

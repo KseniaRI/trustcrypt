@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Drawer } from "antd";
 import NavigationGroup from "../header/components/navigation/navigationGroup/NavigationGroup";
-import { ReactComponent as CloseMenuIcon } from '../../images/icons/close-btn.svg';
-import { ReactComponent as OpenMenuIcon } from '../../images/icons/menu-btn.svg';
+import { ReactComponent as CloseMenuIcon } from '../../assets/images/icons/close-btn.svg';
+import { ReactComponent as OpenMenuIcon } from '../../assets/images/icons/menu-btn.svg';
 import './MobileMenu.scss';
 
 const MobileMenu = () => {

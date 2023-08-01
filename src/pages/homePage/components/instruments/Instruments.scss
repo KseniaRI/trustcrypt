@@ -1,14 +1,16 @@
-@use '../../../../scss/shared.scss' as shared;
+@use '../../../../scss/variables/colors.scss' as colors;
+@use '../../../../scss/variables/transitions.scss' as transitions;
+@use '../../../../scss/variables/font-sizes.scss' as font-sizes;
 
 .instruments__title {
-   font-size: shared.$main-title-font-size; 
+   font-size: font-sizes.$main-title-font-size; 
    margin-bottom: 32px;
    text-align: center;
 }
 
 .instruments__text {
-    color: shared.$main-text-color;
-    font-size: shared.$main-text-font-size;
+    color: colors.$main-text-color;
+    font-size: font-sizes.$main-text-font-size;
     margin: 0 auto;
     margin-bottom: 64px;
     text-align: center;
@@ -38,13 +40,13 @@
 }
 
 .instruments__item {
-    color: shared.$main-text-color;
+    color: colors.$main-text-color;
 
-    transition: shared.$logo-color;
+    transition: transitions.$transition-color;
 
     &:hover,
     &:focus {
-        color: shared.$logo-hover-color;
+        color: colors.$logo-hover-color;
     }
 }
 

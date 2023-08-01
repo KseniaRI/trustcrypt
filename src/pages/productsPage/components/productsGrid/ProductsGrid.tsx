@@ -2,11 +2,11 @@ import { IProduct } from '../../../../types';
 import ProductCard from '../productCard/ProductCard';
 import './ProductsGrid.scss';
 
-interface Props {
+interface ProductsGridProps {
     gridItems: IProduct[] ;
 }
 
-const ProductsGrid = ({ gridItems }: Props) => {
+const ProductsGrid = ({ gridItems }: ProductsGridProps) => {
     
     const productItems = gridItems.map(gridItem => (
         <li key={gridItem.id}>

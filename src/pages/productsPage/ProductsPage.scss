@@ -1,5 +1,4 @@
-@use '../../scss/placeholder.scss';
-@use '../../scss/shared.scss';
+@use '../../scss/variables/font-sizes.scss' as font-sizes;
 
 .products {
     padding-top: 136px;
@@ -7,12 +6,12 @@
 }
 
 .products__title{
-    font-size: shared.$main-text-font-size;
+    font-size: font-sizes.$main-text-font-size;
     margin-bottom: 32px;
 }
 
 .products__text {
-    font-size: shared.$main-text-font-size;
+    font-size: font-sizes.$main-text-font-size;
     margin-bottom: 32px;
 }
 

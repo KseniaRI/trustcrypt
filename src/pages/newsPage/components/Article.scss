@@ -1,13 +1,15 @@
-@use '../../../scss/shared.scss' as shared;
-@use '../../../scss/placeholder.scss';
+@use '../../../scss/placeholders/labels.scss';
+@use '../../../scss/variables/font-sizes.scss' as font-sizes;
+@use '../../../scss/variables/colors.scss' as colors;
+@use '../../../scss/variables/radii.scss' as radii;
 
 .article {
     display: flex;
     flex-direction: column;
     gap: 32px;
     margin-bottom: 32px;
-    background-color: shared.$card-color;
-    border-radius: shared.$radi-box;
+    background-color: colors.$card-color;
+    border-radius: radii.$radi-box;
     padding: 30px;
     width: 100%;
 }
@@ -15,7 +17,7 @@
 .article__img-wrap {
     width: 100%;
     aspect-ratio: 1/1;
-    border-radius: shared.$radi-box;
+    border-radius: radii.$radi-box;
 
     @media screen and (min-width: 768px) {
         width: 250px;
@@ -25,7 +27,7 @@
 
 .article__img {
     width: 100%;
-    border-radius: shared.$radi-box;
+    border-radius: radii.$radi-box;
     object-fit: cover;
 
     @media screen and (min-width: 768px) {
@@ -35,12 +37,12 @@
 }
 
 .article__description {
-    font-size: shared.$secondary-text-font-size;
+    font-size: font-sizes.$secondary-text-font-size;
 }
 
 .article__label {
     @extend %label;
     width: fit-content;
-    background-color: shared.$label-color;
-    color: shared.$label-text-color;
+    background-color: colors.$label-color;
+    color: colors.$label-text-color;
 }

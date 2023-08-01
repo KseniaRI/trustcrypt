@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as Metalsploit } from '../../../../images/icons/metasploit.svg';
+import { ReactComponent as Metalsploit } from '../../../../assets/images/icons/metasploit.svg';
 import Section from '../../../../components/section/Section';
 import './Instruments.scss';
 

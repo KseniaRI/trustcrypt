@@ -1,0 +1,8 @@
+@use '../variables/font-sizes.scss' as font-sizes;
+@use '../variables/radii.scss' as radii;
+
+%label {
+    font-size: font-sizes.$label-text-font-size;
+    padding: 8px 12px;
+    border-radius: radii.$radi-label;
+}

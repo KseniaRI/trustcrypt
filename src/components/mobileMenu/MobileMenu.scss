@@ -1,4 +1,4 @@
-@use '../../scss/shared.scss' as shared;
+@use '../../scss/variables/colors.scss' as colors;
 
 
 .menu .mobile-menu.ant-drawer .ant-drawer-content-wrapper {
@@ -11,7 +11,7 @@
 
 .mobile-menu.ant-drawer .ant-drawer-body,
 .mobile-menu.ant-drawer .ant-menu-light {
-    background-color: #38373D;
+    background-color: colors.$mobile-menu-bg-color;
 }
 
 .mobile-menu__btn {

@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import './Section.scss';
 
-interface Props {
+interface SectionProps {
     children: ReactNode;
 }
 
-const Section = ({ children }: Props) => {
+const Section = ({ children }: SectionProps) => {
     return (
         <section className="section">{children}</section>
     )

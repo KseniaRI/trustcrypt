@@ -1,12 +1,12 @@
 import './FilterBtns.scss';
 
-interface Props {
+interface FilterBtnsProps {
     categories: string[];
     activeCategory: string;
     setActiveCategory: (category: string) => void;
 }
 
-const FilterBtns = ({ categories, activeCategory, setActiveCategory }: Props) => {
+const FilterBtns = ({ categories, activeCategory, setActiveCategory }: FilterBtnsProps) => {
     
     const setActiveStyles = (category: string) => {
         return activeCategory === category ? 'filter__btn--active' : '';

@@ -4,13 +4,13 @@ import { IProduct } from '../../../../types';
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc';
 import './ProductCard.scss';
 
-interface Props {
+interface ProductCardProps {
     product: IProduct;
 }
 
-const ProductCard = ({ product }: Props) => {
+const ProductCard = ({ product }: ProductCardProps) => {
     const { path, name, description } = product;
-    const imgSrc = require(`../../../../images/pictures/${path}.jpg`);
+    const imgSrc = require(`../../../../assets/images/pictures/${path}.jpg`);
 
     const dispatch = useDispatch();
 

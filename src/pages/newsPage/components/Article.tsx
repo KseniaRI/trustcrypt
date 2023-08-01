@@ -1,11 +1,11 @@
 import { IArticle } from "../../../types";
 import './Article.scss';
 
-interface Props {
+interface ArticleProps {
     article: IArticle;
 }
 
-const Article = ({ article }: Props) => {
+const Article = ({ article }: ArticleProps) => {
     const { title, description, pubDate } = article;
      
     const dateObj = new Date(pubDate);

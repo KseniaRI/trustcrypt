@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 import './Container.scss';
 
-interface Props {
+interface ContainerProps {
     children: ReactNode;
 }
 
-const Container = ({ children }: Props) => {
+const Container = ({ children }: ContainerProps) => {
     return (
         <div className='container'>{children}</div>
     )

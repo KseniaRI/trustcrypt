@@ -1,13 +1,14 @@
-@use '../../../../scss/shared.scss' as shared;
+@use '../../../../scss/variables/radii.scss' as radii;
+@use '../../../../scss/variables/colors.scss' as colors;
 
 .product-card {
     display: flex;
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    border-radius: shared.$radi-box;
+    border-radius: radii.$radi-box;
     padding: 16px;
-    background-color: shared.$card-color;
+    background-color: colors.$card-color;
 }
 
 .product-card__img-wrap {

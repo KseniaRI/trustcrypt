@@ -1,4 +1,5 @@
-@use '../../scss/shared.scss' as shared;
+@use '../../scss/variables/font-sizes.scss' as font-sizes;
+@use '../../scss/variables/radii.scss' as radii;
 
 .news {
     padding-top: 136px;
@@ -6,12 +7,12 @@
 }
 
 .news__title {
-    font-size: shared.$main-text-font-size;
+    font-size: font-sizes.$main-text-font-size;
     margin-bottom: 32px;
 }
 
 .news__text {
-    font-size: shared.$main-text-font-size;
+    font-size: font-sizes.$main-text-font-size;
     margin-bottom: 32px;
 }
 
@@ -24,7 +25,7 @@
 }
 
 .spin-wrap .ant-skeleton.ant-skeleton-active .ant-skeleton-paragraph>li {
-    border-radius: shared.$radi-box;
+    border-radius: radii.$radi-box;
     background: linear-gradient(90deg, #0FAE96, #120E27 , #058F7B );
     height: 275px;
     background-size: 400% 100%;

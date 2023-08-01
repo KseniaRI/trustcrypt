@@ -23,7 +23,7 @@ enum PageTraduction {
 };
     
 
-const Nav = () => {
+const NavToPages = () => {
     const location = useLocation();
     const pages: Page[] = [Page.HOME, Page.NEWS, Page.PRODUCTS, Page.FAVORITES];
 
@@ -52,4 +52,4 @@ const Nav = () => {
     )
 }
 
-export default Nav;
+export default NavToPages;

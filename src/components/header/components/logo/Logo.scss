@@ -1,17 +1,19 @@
-@use '../../../../scss/shared.scss' as shared;
+@use '../../../../scss/variables/colors.scss' as colors;
+@use '../../../../scss/variables/font-sizes.scss' as font-sizes;
+@use '../../../../scss/variables/transitions.scss' as transitions;
 
 .logo {
     display: flex;
     gap: 16px;
     align-items: center;
     cursor: pointer;
-    color: shared.$logo-color;
+    color: colors.$logo-color;
 
-    transition: shared.$transition-color;
+    transition: transitions.$transition-color;
 
     &:hover,
     &:focus {
-        color: shared.$logo-hover-color;
+        color: colors.$logo-hover-color;
     }
 }
 
@@ -22,13 +24,13 @@
 }
 
 .logo__text {
-    font-size: shared.$secondary-title-font-size;
+    font-size: font-sizes.$secondary-title-font-size;
     font-weight: bold;
 
-    transition: shared.$transition-color;
+    transition: transitions.$transition-color;
 
     .logo:hover &,
     .logo:focus &{
-        color: shared.$logo-hover-color;
+        color: colors.$logo-hover-color;
     }
 }
