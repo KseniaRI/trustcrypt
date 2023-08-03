@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 const Logo = () => {
     return (
         <NavLink to='/' className='logo'>
-            <LogoIcon className='logo__icon' />
-            <p className='logo__text'>Trustcrypt</p>
+            <LogoIcon className='logoIcon' />
+            <p className='logoText'>Trustcrypt</p>
         </NavLink>
     )
 }

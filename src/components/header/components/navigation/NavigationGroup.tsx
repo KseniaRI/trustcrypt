@@ -3,7 +3,7 @@ import SocialList from "./SocialList";
 
 const NavigationGroup = () => {
     return (
-        <div className="navigation-group">
+        <div className="navigationGroup">
             <NavToPages />
             <SocialList/>
         </div>

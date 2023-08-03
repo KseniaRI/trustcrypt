@@ -1,7 +1,7 @@
 @use '../abstracts/variables/radii.scss' as radii;
 @use '../abstracts/variables/colors.scss' as colors;
 
-.product-card {
+.productCard {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -11,17 +11,17 @@
     background-color: colors.$card-color;
 }
 
-.product-card__img-wrap {
+.productCardImgWrap {
     position: relative;
     overflow: hidden;
     border-radius: 35px;
 }
 
-.product-card__img {
+.productCardImg {
     width: 100%;
 }
 
-.product-card__favorite {
+.productCardFavorite {
     position: absolute;
     bottom: 20px;
     right: 20px

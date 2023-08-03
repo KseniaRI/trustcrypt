@@ -9,9 +9,9 @@ const Instruments = () => {
     const instrumentsItems = instruments.map((instrument, index) => {
         const InstrumentSvg = instrument;
         return (
-            <li key={`${instrument}-${index}`} className='instruments__item'>
+            <li key={`${instrument}-${index}`} className='instrumentsItem'>
                 <NavLink to='products'>
-                    <InstrumentSvg className="instruments__icon" />
+                    <InstrumentSvg className="instrumentsIcon" />
                 </NavLink>
             </li>
         )
@@ -19,9 +19,9 @@ const Instruments = () => {
 
     return (
         <Section>
-            <h2 className='instruments__title'> Инструменты</h2>
-            <p className='instruments__text'>Тестирование на проникновение позволяет ответить на вопрос, как кто-то со злым умыслом может вмешаться в вашу сеть.</p>
-            <ul className='instruments__list'>
+            <h2 className='instrumentsTitle'> Инструменты</h2>
+            <p className='instrumentsText'>Тестирование на проникновение позволяет ответить на вопрос, как кто-то со злым умыслом может вмешаться в вашу сеть.</p>
+            <ul className='instrumentsList'>
                 {instrumentsItems}
             </ul>
         </Section>

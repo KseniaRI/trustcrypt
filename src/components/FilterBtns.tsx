@@ -7,12 +7,12 @@ interface FilterBtnsProps {
 const FilterBtns = ({ categories, activeCategory, setActiveCategory }: FilterBtnsProps) => {
     
     const setActiveStyles = (category: string) => {
-        return activeCategory === category ? 'filter__btn--active' : '';
+        return activeCategory === category ? 'active' : '';
     };
     
     const categoryButtons = categories.map(category => (
         <button
-            className={`filter__btn ${setActiveStyles(category)}`}
+            className={`filterBtn ${setActiveStyles(category)}`}
             key={category}
             onClick={() => setActiveCategory(category)}
         >
@@ -23,7 +23,7 @@ const FilterBtns = ({ categories, activeCategory, setActiveCategory }: FilterBtn
     return (
         <div className="filter">
             <button
-                className={`filter__btn ${setActiveStyles('all')}`}
+                className={`filterBtn ${setActiveStyles('all')}`}
                 onClick={() => setActiveCategory('all')}
             >
                 Все

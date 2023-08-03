@@ -23,20 +23,20 @@ const Security = () => {
     const securityCharacteristics = securityDetails.map(({ icon, text }, index) => {
         const Svg = icon;
         return (
-            <li className='security__item' key={`security-${index}`}>
-                <div className='security__icon-wrap'>
-                    <Svg className='security__icon' />
+            <li className='securityItem' key={`security-${index}`}>
+                <div className='securityIconWrap'>
+                    <Svg className='securityIcon' />
                 </div>
-                <p className='security__capture'>{text}</p>
+                <p className='securityCapture'>{text}</p>
             </li>
         )
     });
 
     return (
         <Section>
-            <h2 className='security__title'>Наши продукты направлены на вашу безопасность. </h2>
-            <p className='security__text'>Мы придерживаемся в своей работе простого принципа: детектировать и блокировать любую вредоносную атаку.</p>
-            <ul className='security__list'>
+            <h2 className='securityTitle'>Наши продукты направлены на вашу безопасность. </h2>
+            <p className='securityText'>Мы придерживаемся в своей работе простого принципа: детектировать и блокировать любую вредоносную атаку.</p>
+            <ul className='securityList'>
                 {securityCharacteristics}
             </ul>
         </Section>

@@ -14,33 +14,11 @@
     width: 100%;
 }
 
-.article__img-wrap {
-    width: 100%;
-    aspect-ratio: 1/1;
-    border-radius: radii.$radi-box;
-
-    @media screen and (min-width: 768px) {
-        width: 250px;
-        height: 250px;
-    }
-}
-
-.article__img {
-    width: 100%;
-    border-radius: radii.$radi-box;
-    object-fit: cover;
-
-    @media screen and (min-width: 768px) {
-        width: 250px;
-        height: 250px;
-    }
-}
-
-.article__description {
+.articleDescription {
     font-size: font-sizes.$secondary-text-font-size;
 }
 
-.article__label {
+.articleLabel {
     @extend %label;
     width: fit-content;
     background-color: colors.$label-color;

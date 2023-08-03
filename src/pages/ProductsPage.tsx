@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Container from '../../components/Container';
-import FilterBtns from '../../components/FilterBtns';
-import ProductsGrid from '../../components/ProductsGrid';
-import { IProduct } from '../../types';
+import Container from '../components/Container';
+import FilterBtns from '../components/FilterBtns';
+import ProductsGrid from '../components/ProductsGrid';
+import { IProduct } from '../types';
 
-const products: IProduct[] = require('./products.json');
+const products: IProduct[] = require('../utils/products.json');
 
 const ProductsPage = () => {
     const [activeCategory, setActiveCategory] = useState('all');
@@ -19,8 +19,8 @@ const ProductsPage = () => {
     return (
         <div className="products">
             <Container>
-                <h1 className='products__title'>Наши продукты</h1>
-                <p className='products__text'>Мы придерживаемся в своей работе простого принципа: детектировать <br/> и блокировать любую вредоносную атаку.</p>
+                <h1 className='productsTitle'>Наши продукты</h1>
+                <p className='productsText'>Мы придерживаемся в своей работе простого принципа: детектировать <br/> и блокировать любую вредоносную атаку.</p>
                 <FilterBtns
                     categories={uniqueCategories}
                     activeCategory={activeCategory}

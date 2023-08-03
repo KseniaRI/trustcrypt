@@ -6,17 +6,17 @@
     width: 100%;
 }
 
-.news__title {
+.newsTitle {
     font-size: font-sizes.$main-text-font-size;
     margin-bottom: 32px;
 }
 
-.news__text {
+.newsText {
     font-size: font-sizes.$main-text-font-size;
     margin-bottom: 32px;
 }
 
-.spin-wrap {
+.spinWrap {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,10 @@
     height: 100%;
 }
 
-.spin-wrap .ant-skeleton.ant-skeleton-active .ant-skeleton-paragraph>li {
+
+// Классы с "-" являются кастомным классом библиотеки Ant d 
+// и используется здесь для изменения стилей по умолчанию
+.spinWrap .ant-skeleton.ant-skeleton-active .ant-skeleton-paragraph>li {
     border-radius: radii.$radi-box;
     background: linear-gradient(90deg, #0FAE96, #120E27, #058F7B);
     height: 275px;

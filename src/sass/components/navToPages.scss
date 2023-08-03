@@ -15,18 +15,18 @@
     }
 }
 
-.nav__item {
+.navItem {
     color: colors.$secondary-text-color;
     font-size: font-sizes.$main-text-font-size;
     cursor: pointer;
 
     transition: transitions.$transition-color;
 
-    &--current {
+    &.current {
         position: relative;
     }
 
-    &--current::after {
+    &.current::after {
         content: '';
         position: absolute;
         bottom: -8px;

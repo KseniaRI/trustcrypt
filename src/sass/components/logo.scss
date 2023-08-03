@@ -17,23 +17,23 @@
     }
 }
 
-.logo__icon {
+.logoIcon {
     width: 40px;
     height: 44px;
     fill: currentColor;
 }
 
-.logo__text {
+.logoText {
     display: block;
-        font-size: font-sizes.$secondary-title-font-size;
-        font-weight: bold;
-    
-        transition: transitions.$transition-color;
-    
-        .logo:hover &,
-        .logo:focus & {
-            color: colors.$logo-hover-color;
-        }
+    font-size: font-sizes.$secondary-title-font-size;
+    font-weight: bold;
+
+    transition: transitions.$transition-color;
+
+    .logo:hover &,
+    .logo:focus & {
+        color: colors.$logo-hover-color;
+    }
 
     @media screen and (min-width: 768px) and (max-width: 992px){
         display: none;

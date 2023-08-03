@@ -9,16 +9,16 @@ const HeroSection = ({ content }: HeroSectionProps) => {
     const { direction, title, text, src } = content;
 
     return (
-        <div className={`hero-section hero-section--${direction}`}>
-            <div className='hero-section__description'>
-                <h1 className="hero-section__title">{title}</h1>
-                <p className='hero-section__text'>{text}</p>
+        <div className={`heroSection ${direction}`}>
+            <div className='heroDescription'>
+                <h1 className="heroTitle">{title}</h1>
+                <p className='heroText'>{text}</p>
                 <NavLink to="products">
-                    <button className='hero-section__button'>Подробнее</button>
+                    <button className='heroButton'>Подробнее</button>
                 </NavLink>
             </div>
-            <div className='hero-section__img-wrap'>
-                <img className='hero-section__img' src={src} alt="Cybersecurity"/>
+            <div className='heroImgWrap'>
+                <img className='heroImg' src={src} alt="Cybersecurity"/>
             </div>
         </div>
     )

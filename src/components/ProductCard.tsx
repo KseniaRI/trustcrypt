@@ -25,11 +25,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const favoriteIcon = productIsFavorite ? <FcLike size={24} /> : <FcLikePlaceholder size={24} />;
 
     return (
-        <div className="product-card">
-            <div className='product-card__img-wrap'>
-                <img className='product-card__img' src={imgSrc} alt={name} />
+        <div className="productCard">
+            <div className='productCardImgWrap'>
+                <img className='productCardImg' src={imgSrc} alt={name} />
                 <span
-                    className='product-card__favorite'
+                    className='productCardFavorite'
                     onClick={()=>addToFavorites(product)}
                 >
                     {favoriteIcon}

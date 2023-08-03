@@ -13,7 +13,7 @@ const FavoritesPage = () => {
     return (
         <div className='favorites'>
             <Container>
-                <h3 className='favorites__title'>Понравившиеся продукты:</h3>
+                <h3 className='favoritesTitle'>Понравившиеся продукты:</h3>
                 {content}
             </Container>
         </div>

@@ -37,9 +37,9 @@ const NewsPage = () => {
     return (
         <div className="news">
             <Container>
-                <h1 className='news__title'>Последние события в мире киберпространства</h1>
-                <p className='news__text'>Ознакомьтесь с информацией, чтобы быть в курсе новейших киберугроз и получить советы экспертов по безопасности. </p>
-                <div className='spin-wrap'>
+                <h1 className='newsTitle'>Последние события в мире киберпространства</h1>
+                <p className='newsText'>Ознакомьтесь с информацией, чтобы быть в курсе новейших киберугроз и получить советы экспертов по безопасности. </p>
+                <div className='spinWrap'>
                     <Skeleton loading={articlesAreLoading} paragraph={{ rows: 10 }} active />
                 </div>
                 {articlesList}

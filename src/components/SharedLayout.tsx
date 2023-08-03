@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const SharedLayout = () => {
     return (
-        <div className="layout-container">
+        <div className="layoutContainer">
             <Header />
             <Suspense fallback={<Spin size="large"/>}>
                 <Outlet/>

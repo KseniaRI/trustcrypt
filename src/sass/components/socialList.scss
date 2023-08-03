@@ -7,7 +7,7 @@
     gap: 16px;
 }
 
-.social__item {
+.socialItem {
     @extend %social-btn;
     width: 24px;
     height: 24px;
@@ -24,12 +24,12 @@
     }
 }
 
-.social__link {
+.socialLink {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.social__icon {
+.socialIcon {
     fill: currentColor;
 }

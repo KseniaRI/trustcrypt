@@ -2,13 +2,13 @@
 @use '../abstracts/variables/transitions.scss' as transitions;
 @use '../abstracts/variables/font-sizes.scss' as font-sizes;
 
-.instruments__title {
+.instrumentsTitle {
     font-size: font-sizes.$main-title-font-size;
     margin-bottom: 32px;
     text-align: center;
 }
 
-.instruments__text {
+.instrumentsText {
     color: colors.$main-text-color;
     font-size: font-sizes.$main-text-font-size;
     margin: 0 auto;
@@ -20,7 +20,7 @@
     }
 }
 
-.instruments__list {
+.instrumentsList {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -39,7 +39,7 @@
     }
 }
 
-.instruments__item {
+.instrumentsItem {
     color: colors.$main-text-color;
 
     transition: transitions.$transition-color;
@@ -50,6 +50,6 @@
     }
 }
 
-.instruments__icon {
+.instrumentsIcon {
     fill: currentColor;
 }

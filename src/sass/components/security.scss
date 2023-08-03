@@ -3,13 +3,13 @@
 @use '../abstracts/variables/font-sizes.scss' as font-sizes;
 @use '../abstracts/variables/radii.scss' as radii;
 
-.security__title {
+.securityTitle {
     font-size: font-sizes.$main-title-font-size;
     margin-bottom: 32px;
     text-align: center;
 }
 
-.security__text {
+.securityText {
     color: colors.$main-text-color;
     font-size: font-sizes.$main-text-font-size;
     margin: 0 auto;
@@ -17,7 +17,7 @@
     text-align: center;
 }
 
-.security__list {
+.securityList {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -28,7 +28,7 @@
     }
 }
 
-.security__item {
+.securityItem {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -57,7 +57,7 @@
     }
 }
 
-.security__icon-wrap {
+.securityIconWrap {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +75,7 @@
     }
 }
 
-.security__icon {
+.securityIcon {
     fill: currentColor;
     width: 29px;
     height: 29px;
@@ -86,7 +86,7 @@
     }
 }
 
-.security__capture {
+.securityCapture {
     @media screen and (min-width: 768px) {
         text-align: center;
     }

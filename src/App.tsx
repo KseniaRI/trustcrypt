@@ -2,7 +2,7 @@ import HomePage from './pages/HomePage';
 import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import NewsPage from './pages/NewsPage';
 import SharedLayout from './components/SharedLayout';
-import ProductsPage from './pages/productsPage/ProductsPage';
+import ProductsPage from './pages/ProductsPage';
 import FavoritesPage from './pages/FavoritesPage';
 import './App.scss';
 

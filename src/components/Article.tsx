@@ -12,9 +12,9 @@ const Article = ({ article }: ArticleProps) => {
 
     return (
         <div className='article'>
-            <h3 className='article__title'>{title}</h3>
-            <p className='article__description'>{description}</p>
-            <p className='article__label'>{date}</p>
+            <h3>{title}</h3>
+            <p className='articleDescription'>{description}</p>
+            <p className='articleLabel'>{date}</p>
         </div>
     )
 }

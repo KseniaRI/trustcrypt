@@ -18,8 +18,8 @@ const MobileMenu = () => {
     const menuIcon = menuIsOpen ? <CloseMenuIcon /> : <OpenMenuIcon />;
     
     return (
-        <div className="menu">
-            <button className="mobile-menu__btn" onClick={showHideDrawer}>
+        <div className="mobileMenu">
+            <button className="mobileMenuBtn" onClick={showHideDrawer}>
                 {menuIcon}
             </button>
             <Drawer

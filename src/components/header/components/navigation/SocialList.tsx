@@ -26,9 +26,9 @@ const SocialList = () => {
         const path = social.path;
 
         return (
-            <li className='social__item' key={path}>
-                <Link to={path} target="_blank" className='social__link'>
-                    <Svg className='social__icon' />
+            <li className='socialItem' key={path}>
+                <Link to={path} target="_blank" className='socialLink'>
+                    <Svg className='socialIcon' />
                 </Link>
             </li>
         )

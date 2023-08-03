@@ -27,7 +27,7 @@ const NavToPages = () => {
     const pages: Page[] = [Page.HOME, Page.NEWS, Page.PRODUCTS, Page.FAVORITES];
 
     const getCurrentClass = (path: PathToPage) => {
-        return location.pathname === path ? 'nav__item--current' : '';
+        return location.pathname === path ? 'current' : '';
     };
 
     const navItems = pages.map(page => {
@@ -36,7 +36,7 @@ const NavToPages = () => {
         const pageName = PageTraduction[page];
 
         return (
-            <li key={path} className={`nav__item ${currentClass}`}>
+            <li key={path} className={`navItem ${currentClass}`}>
                 <NavLink to={path}>
                     {pageName}
                 </NavLink>
