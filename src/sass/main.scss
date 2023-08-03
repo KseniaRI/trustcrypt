@@ -1,0 +1,34 @@
+@import "base/reset.scss";
+
+@import "abstracts/variables/colors.scss";
+@import "abstracts/variables/font-families.scss";
+@import "abstracts/variables/font-sizes.scss";
+@import "abstracts/variables/radii.scss";
+@import "abstracts/variables/transitions.scss";
+
+@import "abstracts/placeholders/buttons.scss";
+@import "abstracts/placeholders/labels.scss";
+
+@import "layout/footer.scss";
+@import "layout/header.scss";
+@import "layout/sharedLayout.scss";
+
+@import "components/container.scss";
+@import "components/filterBtns.scss";
+@import "components/logo.scss";
+@import "components/navigationGroup.scss";
+@import "components/navToPages.scss";
+@import "components/socialList.scss";
+@import "components/mobileMenu.scss";
+@import "components/section.scss";
+@import "components/heroSection.scss";
+@import "components/instruments.scss";
+@import "components/security.scss";
+@import "components/article.scss";
+@import "components/productCard.scss";
+@import "components/productsGrid.scss";
+
+@import "pages/favoritesPage.scss";
+@import "pages/homePage.scss";
+@import "pages/newsPage.scss";
+@import "pages/productsPage.scss";

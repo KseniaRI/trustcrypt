@@ -1,0 +1,34 @@
+@use '../abstracts/placeholders/buttons.scss';
+@use '../abstracts/variables/colors.scss' as colors;
+@use '../abstracts/variables/transitions.scss' as transitions;
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.filter__btn {
+    @extend %action-button;
+    margin-bottom: 32px;
+    color: colors.$main-btn-text-color;
+    background-color: colors.$secondary-btn-color;
+    border: none;
+
+    transition: transitions.$transition-background-color;
+    transition: transitions.$transition-color;
+
+    &:hover,
+    &:focus {
+        background-color: colors.$secondary-btn-hover-color;
+    }
+
+    &--active {
+        background-color: colors.$secondary-btn-active-color;
+        color: colors.$secondary-btn-active-text-color;
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 60px;
+    }
+}

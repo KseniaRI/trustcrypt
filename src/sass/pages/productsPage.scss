@@ -1,0 +1,16 @@
+@use '../abstracts/variables/font-sizes.scss' as font-sizes;
+
+.products {
+    padding-top: 136px;
+    width: 100%;
+}
+
+.products__title {
+    font-size: font-sizes.$main-text-font-size;
+    margin-bottom: 32px;
+}
+
+.products__text {
+    font-size: font-sizes.$main-text-font-size;
+    margin-bottom: 32px;
+}

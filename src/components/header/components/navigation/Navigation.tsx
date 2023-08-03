@@ -1,6 +1,6 @@
 import Media from "react-media"
-import MobileMenu from "../../../mobileMenu/MobileMenu"
-import NavigationGroup from "./navigationGroup/NavigationGroup"
+import MobileMenu from "../../../MobileMenu"
+import NavigationGroup from "./NavigationGroup"
 
 const Navigation = () => {
     return (

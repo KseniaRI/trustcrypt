@@ -1,0 +1,41 @@
+@use '../abstracts/variables/colors.scss' as colors;
+@use '../abstracts/variables/font-sizes.scss' as font-sizes;
+@use '../abstracts/variables/transitions.scss' as transitions;
+
+.logo {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    cursor: pointer;
+    color: colors.$logo-color;
+
+    transition: transitions.$transition-color;
+
+    &:hover,
+    &:focus {
+        color: colors.$logo-hover-color;
+    }
+}
+
+.logo__icon {
+    width: 40px;
+    height: 44px;
+    fill: currentColor;
+}
+
+.logo__text {
+    display: block;
+        font-size: font-sizes.$secondary-title-font-size;
+        font-weight: bold;
+    
+        transition: transitions.$transition-color;
+    
+        .logo:hover &,
+        .logo:focus & {
+            color: colors.$logo-hover-color;
+        }
+
+    @media screen and (min-width: 768px) and (max-width: 992px){
+        display: none;
+    }
+}

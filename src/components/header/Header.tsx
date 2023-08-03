@@ -1,7 +1,7 @@
-import Container from "../container/Container";
-import Logo from "./components/logo/Logo";
+import Container from "../Container";
+import Logo from "./components/Logo";
 import Navigation from './components/navigation/Navigation';
-import './Header.scss';
+// import './Header.scss';
 
 const Header = () => {
     return (

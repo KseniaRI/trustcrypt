@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import Container from '../../components/container/Container';
-import FilterBtns from '../../components/filterBtns/FilterBtns';
-import ProductsGrid from './components/productsGrid/ProductsGrid';
+import Container from '../../components/Container';
+import FilterBtns from '../../components/FilterBtns';
+import ProductsGrid from '../../components/ProductsGrid';
 import { IProduct } from '../../types';
-import './ProductsPage.scss';
 
 const products: IProduct[] = require('./products.json');
 

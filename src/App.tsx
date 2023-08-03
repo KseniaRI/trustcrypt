@@ -1,10 +1,10 @@
-import './App.scss';
-import HomePage from './pages/homePage/HomePage';
+import HomePage from './pages/HomePage';
 import {BrowserRouter, Route, Routes } from 'react-router-dom';
-import NewsPage from './pages/newsPage/NewsPage';
-import SharedLayout from './components/sharedLayout/SharedLayout';
+import NewsPage from './pages/NewsPage';
+import SharedLayout from './components/SharedLayout';
 import ProductsPage from './pages/productsPage/ProductsPage';
-import FavoritesPage from './pages/favoritesPage/FavoritesPage';
+import FavoritesPage from './pages/FavoritesPage';
+import './App.scss';
 
 function App() {
   return (
