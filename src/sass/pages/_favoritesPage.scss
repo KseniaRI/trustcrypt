@@ -1,9 +1,9 @@
-@use '../abstracts/variables/font-sizes.scss' as font-sizes;
-
 .favorites {
     padding-top: 136px;
 }
 
 .favoritesTitle {
     margin-bottom: 32px;
+    font-size: $main-title-font-size;
+    color: $main-text-color;
 }

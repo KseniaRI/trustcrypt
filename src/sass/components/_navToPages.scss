@@ -1,7 +1,3 @@
-@use '../abstracts/variables/colors.scss' as colors;
-@use '../abstracts/variables/transitions.scss' as transitions;
-@use '../abstracts/variables/font-sizes.scss' as font-sizes;
-
 .nav {
     display: flex;
     flex-direction: column;
@@ -16,11 +12,11 @@
 }
 
 .navItem {
-    color: colors.$secondary-text-color;
-    font-size: font-sizes.$main-text-font-size;
+    color: $secondary-text-color;
+    font-size: $main-text-font-size;
     cursor: pointer;
 
-    transition: transitions.$transition-color;
+    transition: $transition-color;
 
     &.current {
         position: relative;
@@ -34,7 +30,7 @@
         display: block;
         width: 100%;
         height: 3px;
-        background-color: colors.$social-btn-hover-color;
+        background-color: $social-btn-hover-color;
 
         @media screen and (min-width: 768px) {
             bottom: -26px;
@@ -42,7 +38,7 @@
     }
 
     &:hover {
-        color: colors.$nav-hover-color;
+        color: $nav-hover-color;
     }
 
 }

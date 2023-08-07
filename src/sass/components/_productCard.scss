@@ -1,14 +1,11 @@
-@use '../abstracts/variables/radii.scss' as radii;
-@use '../abstracts/variables/colors.scss' as colors;
-
 .productCard {
     display: flex;
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    border-radius: radii.$radi-box;
+    border-radius: $radi-box;
     padding: 16px;
-    background-color: colors.$card-color;
+    background-color: $card-color;
 }
 
 .productCardImgWrap {
@@ -25,4 +22,13 @@
     position: absolute;
     bottom: 20px;
     right: 20px
+}
+
+.productCardName {
+    font-size: $secondary-title-font-size;
+    color: $main-text-color;
+}
+
+.productCardDescription {
+    color: $main-text-color;
 }

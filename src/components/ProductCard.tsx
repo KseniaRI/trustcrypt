@@ -35,8 +35,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     {favoriteIcon}
                 </span>
             </div>
-            <h3>{name}</h3>
-            <p>{description}</p>
+            <h3 className='productCardName'>{name}</h3>
+            <p className='productCardDescription'>{description}</p>
         </div>
     )
 }

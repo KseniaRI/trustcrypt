@@ -1,16 +1,13 @@
-@use '../abstracts/variables/colors.scss' as colors;
-@use '../abstracts/variables/transitions.scss' as transitions;
-@use '../abstracts/variables/font-sizes.scss' as font-sizes;
-
 .instrumentsTitle {
-    font-size: font-sizes.$main-title-font-size;
+    font-size: $main-title-font-size;
+    color: $main-title-color;
     margin-bottom: 32px;
     text-align: center;
 }
 
 .instrumentsText {
-    color: colors.$main-text-color;
-    font-size: font-sizes.$main-text-font-size;
+    color: $main-text-color;
+    font-size: $main-text-font-size;
     margin: 0 auto;
     margin-bottom: 64px;
     text-align: center;
@@ -40,13 +37,13 @@
 }
 
 .instrumentsItem {
-    color: colors.$main-text-color;
+    color: $main-text-color;
 
-    transition: transitions.$transition-color;
+    transition: $transition-color;
 
     &:hover,
     &:focus {
-        color: colors.$logo-hover-color;
+        color: $logo-hover-color;
     }
 }
 

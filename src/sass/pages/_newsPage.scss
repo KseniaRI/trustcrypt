@@ -1,18 +1,17 @@
-@use '../abstracts/variables/font-sizes.scss' as font-sizes;
-@use '../abstracts/variables/radii.scss' as radii;
-
 .news {
     padding-top: 136px;
     width: 100%;
 }
 
 .newsTitle {
-    font-size: font-sizes.$main-text-font-size;
+    color: $main-title-color;
+    font-size: $main-title-font-size;
     margin-bottom: 32px;
 }
 
 .newsText {
-    font-size: font-sizes.$main-text-font-size;
+    font-size: $main-text-font-size;
+    color: $main-text-color;
     margin-bottom: 32px;
 }
 
@@ -28,7 +27,7 @@
 // Классы с "-" являются кастомным классом библиотеки Ant d 
 // и используется здесь для изменения стилей по умолчанию
 .spinWrap .ant-skeleton.ant-skeleton-active .ant-skeleton-paragraph>li {
-    border-radius: radii.$radi-box;
+    border-radius: $radi-box;
     background: linear-gradient(90deg, #0FAE96, #120E27, #058F7B);
     height: 275px;
     background-size: 400% 100%;

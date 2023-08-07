@@ -1,9 +1,3 @@
-@use '../abstracts/variables/colors.scss' as colors;
-@use '../abstracts/variables/radii.scss' as radii;
-@use '../abstracts/variables/transitions.scss' as transitions;
-@use '../abstracts/variables/font-sizes.scss' as font-sizes;
-@use '../abstracts/placeholders/buttons.scss';
-
 .hero {
     display: flex;
     flex-direction: column;
@@ -33,14 +27,14 @@
 }
 
 .heroImgWrap {
-    border-radius: radii.$radi-img;
+    border-radius: $radi-img;
     overflow: hidden;
 }
 
 .heroImg {
     object-fit: contain;
     object-position: center;
-    border-radius: radii.$radi-img;
+    border-radius: $radi-img;
     width: 100%;
 }
 
@@ -58,6 +52,8 @@
 .heroTitle {
     text-align: center;
     margin-bottom: 16px;
+    color: $main-title-color;
+    font-size: $main-title-font-size;
 
     @media screen and (min-width: 768px) {
         text-align: left;
@@ -67,9 +63,10 @@
 
 .heroText {
     display: inline-block;
-    font-size: font-sizes.$main-text-font-size;
+    font-size: $main-text-font-size;
     text-align: center;
     margin-bottom: 16px;
+    color: $main-text-color;
 
     @media screen and (min-width: 768px) {
         text-align: left;
@@ -79,17 +76,17 @@
 
 .heroButton {
     @extend %action-button;
-    background-color: colors.$main-btn-color;
-    color: colors.$main-btn-text-color;
-    font-size: font-sizes.$btn-font-size;
+    background-color: $main-btn-color;
+    color: $main-btn-text-color;
+    font-size: $btn-font-size;
 
-    transition: transitions.$transition-background-color;
-    transition: transitions.$transition-color;
+    transition: $transition-background-color;
+    transition: $transition-color;
 
     &:hover,
     &:focus {
-        background-color: colors.$main-btn-hover-color;
-        color: colors.$main-btn-color;
+        background-color: $main-btn-hover-color;
+        color: $main-btn-color;
     }
 
     @media screen and (max-width: 767px) {

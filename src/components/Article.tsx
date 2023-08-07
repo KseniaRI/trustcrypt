@@ -12,7 +12,7 @@ const Article = ({ article }: ArticleProps) => {
 
     return (
         <div className='article'>
-            <h3>{title}</h3>
+            <h3 className="articleTitle">{title}</h3>
             <p className='articleDescription'>{description}</p>
             <p className='articleLabel'>{date}</p>
         </div>
