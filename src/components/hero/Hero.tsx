@@ -1,9 +1,9 @@
 import HeroSection from "./HeroSection";
-import homeRight from '../../assets/images/pictures/home-right.jpg';
-import homeLeft from '../../assets/images/pictures/home-left.jpg';
+import { heroImages } from "../../assets/images/pictures";
 import { IContent } from '../../types';
 
 const Hero = () => {
+    const { homeRight, homeLeft } = heroImages;
 
     const contents: IContent[] = [
         {

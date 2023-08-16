@@ -6,7 +6,7 @@ import Article from '../components/Article';
 import { fetchNews } from '../services/newsAPI';
 
 const NewsPage = () => {
-    const [articles, setArticles] = useState<IArticle[] | []>([]);
+    const [articles, setArticles] = useState<IArticle[]>([]);
     const [articlesAreLoading, setArticlesAreLoading] = useState(true);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const NewsPage = () => {
 
     const articlesList = articles?.length > 0 && (
         <ul>
-            {articles.map(article => (
+            {articles?.map(article => (
                     <li key={article.title}>
                         <Article article={article} />
                     </li>

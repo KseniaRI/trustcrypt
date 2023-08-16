@@ -2,14 +2,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, deleteFavorite, getFavorites } from '../redux/favoritesSlice';
 import { IProduct } from '../types';
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc';
+import { prodImages } from '../assets/images/pictures';
 
 interface ProductCardProps {
     product: IProduct;
 }
 
+type TProdImages = typeof prodImages;
+
 const ProductCard = ({ product }: ProductCardProps) => {
     const { path, name, description } = product;
-    const imgSrc = require(`../assets/images/pictures/${path}.jpg`);
+    const imgName: keyof TProdImages = path;
+    const imgSrc = prodImages[imgName];
 
     const dispatch = useDispatch();
 

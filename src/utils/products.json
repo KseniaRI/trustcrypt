@@ -4,41 +4,41 @@
         "name": "Название продукта",
         "description": "Lorem ipsum at vero eos et accusam et justo duo dolores et ea rebum...",
         "category": "1 кат",
-        "path": "prod-1"
+        "path": "prod1"
     },
      {
        "id": "2",
         "name": "Название продукта",
         "description": "Lorem ipsum at vero eos et accusam et justo duo dolores et ea rebum...",
         "category": "2 кат",
-        "path": "prod-2"
+        "path": "prod2"
     },
      {
        "id": "3",
         "name": "Название продукта",
         "description": "Lorem ipsum at vero eos et accusam et justo duo dolores et ea rebum...",
         "category": "1 кат",
-        "path": "prod-3"
+        "path": "prod3"
     },
      {
        "id": "4",
         "name": "Название продукта",
         "description": "Lorem ipsum at vero eos et accusam et justo duo dolores et ea rebum...",
         "category": "2 кат",
-        "path": "prod-4"
+        "path": "prod4"
     },
      {
        "id": "5",
         "name": "Название продукта",
         "description": "Lorem ipsum at vero eos et accusam et justo duo dolores et ea rebum...",
         "category": "1 кат",
-        "path": "prod-5"
+        "path": "prod5"
     },
      {
        "id": "6",
         "name": "Название продукта",
         "description": "Lorem ipsum at vero eos et accusam et justo duo dolores et ea rebum...",
         "category": "3 кат",
-        "path": "prod-6"
+        "path": "prod6"
     }
 ]

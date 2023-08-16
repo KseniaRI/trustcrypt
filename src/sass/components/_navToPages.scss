@@ -18,11 +18,11 @@
 
     transition: $transition-color;
 
-    &.current {
+    & a.active {
         position: relative;
     }
 
-    &.current::after {
+    & a.active::after {
         content: '';
         position: absolute;
         bottom: -8px;

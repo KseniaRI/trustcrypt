@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 enum PathToPage {
     "HOME" = "/",
@@ -23,20 +23,14 @@ enum PageTraduction {
     
 
 const NavToPages = () => {
-    const location = useLocation();
-    const pages: Page[] = [Page.HOME, Page.NEWS, Page.PRODUCTS, Page.FAVORITES];
-
-    const getCurrentClass = (path: PathToPage) => {
-        return location.pathname === path ? 'current' : '';
-    };
+    const pages: Page[] = Object.values(Page);
 
     const navItems = pages.map(page => {
         const path = PathToPage[page];
-        const currentClass = getCurrentClass(path);
         const pageName = PageTraduction[page];
 
         return (
-            <li key={path} className={`navItem ${currentClass}`}>
+            <li key={path} className="navItem">
                 <NavLink to={path}>
                     {pageName}
                 </NavLink>

@@ -3,7 +3,7 @@ export interface IProduct {
     name: string;
     description: string;
     category: string;
-    path: string;
+    path:  "prod1" | "prod2" | "prod3" | "prod4" | "prod5" | "prod6";
 }
 
 export interface IArticle {
