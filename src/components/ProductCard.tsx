@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { addFavorite, deleteFavorite, getFavorites } from '../redux/favoritesSlice';
 import { IProduct } from '../types';
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc';
 import { prodImages } from '../assets/images/pictures';
+import { useState } from 'react';
+import { addFavoriteToStorage, checkIsProductInStorage, deleteFavoriteFromStorage } from '../utils/storageFavorites';
 
 interface ProductCardProps {
     product: IProduct;
@@ -15,18 +15,23 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const imgName: keyof TProdImages = path;
     const imgSrc = prodImages[imgName];
 
-    const dispatch = useDispatch();
+    const initialIsFavorite = checkIsProductInStorage(product.id);
 
-    const favoritesIds = useSelector(getFavorites).map(favorite=>favorite.id);
-    const productIsFavorite = favoritesIds.includes(product.id);
+    const [isFavoriteIcon, setIsFavoriteIcon] = useState(initialIsFavorite);
 
-    const addToFavorites = (product: IProduct) => {
-        productIsFavorite ?
-            dispatch(deleteFavorite(product.id)) :
-            dispatch(addFavorite(product));
+    const togglePreferenceIcon = () => {
+        setIsFavoriteIcon(prev => !prev);
+    };
+
+    const onPreferenceIconClick = (product: IProduct) => {
+        checkIsProductInStorage(product.id) ?
+            deleteFavoriteFromStorage(product.id) :
+            addFavoriteToStorage(product);
+            
+        togglePreferenceIcon();
     }
 
-    const favoriteIcon = productIsFavorite ? <FcLike size={24} /> : <FcLikePlaceholder size={24} />;
+    const preferenceIcon = isFavoriteIcon ? <FcLike size={24} /> : <FcLikePlaceholder size={24} />;
 
     return (
         <div className="productCard">
@@ -34,9 +39,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 <img className='productCardImg' src={imgSrc} alt={name} />
                 <span
                     className='productCardFavorite'
-                    onClick={()=>addToFavorites(product)}
+                    onClick={()=>onPreferenceIconClick(product)}
                 >
-                    {favoriteIcon}
+                   {preferenceIcon} 
                 </span>
             </div>
             <h3 className='productCardName'>{name}</h3>

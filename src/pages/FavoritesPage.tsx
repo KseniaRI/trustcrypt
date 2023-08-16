@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
 import Container from "../components/Container"
-import { getFavorites } from "../redux/favoritesSlice"
+
 import ProductsGrid from "../components/ProductsGrid";
+import { getFavoritesFromStorage } from '../utils/storageFavorites';
 
 const FavoritesPage = () => {
-    const favorites = useSelector(getFavorites);
+    const favorites = getFavoritesFromStorage();
 
     const content = favorites.length > 0 ?
         <ProductsGrid gridItems={favorites} /> :
