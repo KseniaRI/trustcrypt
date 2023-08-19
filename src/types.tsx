@@ -19,3 +19,9 @@ export interface IContent {
     direction: "normal" | "reverse";
     src: string;
 }
+
+export interface IUser {
+    email: string | null,
+    token: string | null,
+    id: string | null
+}
