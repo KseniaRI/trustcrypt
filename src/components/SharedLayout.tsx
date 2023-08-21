@@ -1,35 +1,26 @@
 import { Suspense } from "react";
+import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom';
 import { Spin } from 'antd';
-import Header from "./header/Header";
-import Footer from "./Footer";
-import { useEffect } from 'react'
 import { useAppDispatch } from "../hooks/redux-hooks";
 import { useAuth } from "../hooks/use-auth";
-import { getFavoritesFromFirebase } from "../services/firebase/firebaseFavoritesOperations";
-import { addFavorite } from "../redux/favoritesSlice";
+import { addFavorite } from "../redux/favorites/favoritesSlice";
+import { fetchFavoritesFromFirebase } from "../redux/favorites/favoritesOperations";
+import Header from "./header/Header";
+import Footer from "./Footer";
 
 const SharedLayout = () => {
     const dispatch = useAppDispatch();
-    const { isAuth, id: userId } = useAuth();
+    const { id: userId } = useAuth();
 
     useEffect(() => {
-            const fetchFavorites = async () => {
-                if (isAuth && userId) {
-                    try {
-                        const favoritesArray = await getFavoritesFromFirebase(userId);
-                        favoritesArray.forEach((favorite) => {
-                            dispatch(addFavorite(favorite));
-                        });
-                    } catch (error) {
-                        console.log(error);
-                    }
-                }
-            };
-
-        fetchFavorites();
+        if (userId) {
+            fetchFavoritesFromFirebase(userId).then(favorites => {
+                favorites.forEach((favorite) => dispatch(addFavorite(favorite)))
+            });
+        }
         
-        }, [isAuth, userId, dispatch]);
+    }, [ userId, dispatch]);
     
     return (
         <div className="layoutContainer">

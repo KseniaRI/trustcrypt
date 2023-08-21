@@ -1,5 +1,5 @@
-import { IArticle } from "../types";
 import ShowMoreText from "react-show-more-text";
+import { IArticle } from "../types";
 
 interface ArticleProps {
     article: IArticle;

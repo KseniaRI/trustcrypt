@@ -1,25 +1,17 @@
-import { setUser } from "../redux/userSlice";
-import { getUserFromFirebase } from "../services/firebase/firebaseUserOperations";
+import { useEffect } from 'react';
+import { setUser } from "../redux/user/userSlice";
 import { useAppDispatch, useAppSelector } from "./redux-hooks";
-import { useEffect } from 'react'; 
-
+import { fetchUserFromFirebase } from '../redux/user/userOperations';
+ 
 export const useAuth = () => {
     const localStorageUserId = localStorage.getItem('userId');
     const dispatch = useAppDispatch();
     
     useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                if (localStorageUserId) {
-                    const userFromFirebase = await getUserFromFirebase(localStorageUserId);
-                    dispatch(setUser(userFromFirebase));
-                } 
-            } catch (error) {
-                console.log(error); 
-            }
+        if (localStorageUserId) {
+            fetchUserFromFirebase(localStorageUserId).then(user => dispatch(setUser(user)));
         }
 
-        fetchUser();
     }, [localStorageUserId, dispatch]);
 
     const { email, id, token } = useAppSelector(state => state.user);

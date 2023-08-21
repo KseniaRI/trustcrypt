@@ -24,6 +24,7 @@ export const getFavoritesFromFirebase = (userId: string): Promise<IProduct[]> =>
             } else {
                 resolve([]);
             }
-        });
+        }, (error) => reject(error));
     });
 };
+

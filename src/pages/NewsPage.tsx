@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Skeleton} from 'antd';
+import { Skeleton } from 'antd';
+import { fetchNews } from '../services/newsAPI';
 import { IArticle} from '../types';
 import Container from '../components/Container';
 import Article from '../components/Article';
-import { fetchNews } from '../services/newsAPI';
 
 const NewsPage = () => {
     const [articles, setArticles] = useState<IArticle[]>([]);

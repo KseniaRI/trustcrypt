@@ -25,3 +25,8 @@ export interface IUser {
     token: string | null,
     id: string | null
 }
+
+export interface IAccessCredentials {
+    email: string,
+    password: string
+}

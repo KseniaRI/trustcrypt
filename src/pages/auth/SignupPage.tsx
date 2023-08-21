@@ -1,12 +1,13 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { Button, Form, Input } from 'antd';
-import Container from '../../components/Container';
-import { setUser } from '../../redux/userSlice';
-import { useAuth } from '../../hooks/use-auth';
 import { Navigate } from 'react-router-dom';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Form, Input } from 'antd';
+import { setUser } from '../../redux/user/userSlice';
+import { useAuth } from '../../hooks/use-auth';
+import { createNewUserViaFirebase } from '../../redux/user/userOperations';
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import { addUserToFirebase } from '../../services/firebase/firebaseUserOperations';
+import { IAccessCredentials } from '../../types';
+import Container from '../../components/Container';
 
 const SignupPage = () => {
 
@@ -14,24 +15,15 @@ const SignupPage = () => {
 
     const { isAuth } = useAuth();
 
-    const onFinish = (values: any) => {
-        const { email, password } = values;
-        const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(({ user }) => {
-                user.getIdToken().then(accessToken => {
-                    const userData = {
-                        email: user.email,
-                        id: user.uid,
-                        token: accessToken
-                    }
-                    addUserToFirebase(userData);
-                    dispatch(setUser(userData));
-                    localStorage.setItem("userId", userData.id);
-                    alert(`Создан новый аккаунт с ${user.email}`)
-                })
-            })
-            .catch(console.error);
+    const onFinish = (values: IAccessCredentials) => {
+        createNewUserViaFirebase(values).then(userData => {
+            if (userData) {
+                addUserToFirebase(userData);
+                dispatch(setUser(userData));
+                userData.id && localStorage.setItem("userId", userData.id);
+                alert(`Создан новый аккаунт с ${userData.email}`);
+            }
+        });
     };
 
     return (

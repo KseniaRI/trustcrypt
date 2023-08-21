@@ -1,34 +1,24 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import Container from '../../components/Container';
 import { NavLink, Navigate} from 'react-router-dom';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { setUser } from '../../redux/userSlice';
+import { setUser } from '../../redux/user/userSlice';
 import { useAuth } from '../../hooks/use-auth';
 import { useAppDispatch } from '../../hooks/redux-hooks';
+import { IAccessCredentials } from '../../types';
+import { authoriseUserViaFirebase } from '../../redux/user/userOperations';
 
 const LoginPage = () => {
-
   const dispatch = useAppDispatch();
-  
   const { isAuth } = useAuth();
   
-  const onFinish = (values: any) => {
-    const { email, password } = values;
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-                user.getIdToken().then(accessToken => {
-                    const userData = {
-                        email: user.email,
-                        id: user.uid,
-                        token: accessToken
-                  }
-                    dispatch(setUser(userData));
-                    localStorage.setItem("userId", userData.id);
-                })
-            })
-      .catch(()=> alert("Пользоатель не существует"));
+  const onFinish = (values: IAccessCredentials) => {
+    authoriseUserViaFirebase(values).then(userData => {
+      if (userData) {
+        dispatch(setUser(userData));
+        userData.id && localStorage.setItem("userId", userData.id);
+      }
+    })
   };
 
   return (
@@ -39,7 +29,6 @@ const LoginPage = () => {
           <Form
           name="normal_login"
           className="authForm"
-          initialValues={{ remember: true }}
           onFinish={onFinish}
           >
             <Form.Item
@@ -69,11 +58,6 @@ const LoginPage = () => {
                 type="password"
                 placeholder="Пароль"
               />
-            </Form.Item>
-            <Form.Item>
-              <Form.Item name="remember" valuePropName="checked" noStyle>
-                <Checkbox>Запомнить меня</Checkbox>
-              </Form.Item>
             </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit" className="authFormButton">

@@ -11,15 +11,6 @@
         width: 490px;
     }
 }
-.auth .ant-checkbox-checked .ant-checkbox-inner {
-    background-color: $main-btn-color;
-    border-color: $main-btn-color;
-}
-
-.auth .ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner{
-    background-color: $secondary-btn-hover-color;
-    border-color: $secondary-btn-hover-color;
-}
 
 .auth .authFormButton {
     @extend %action-button;
@@ -30,10 +21,6 @@
 .auth .ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover{
     background-color: $main-btn-hover-color;
     color: $secondary-btn-active-text-color;
-}
-
-.auth .ant-checkbox + span {
-    color: $secondary-text-color;
 }
 
 .authOptions{
