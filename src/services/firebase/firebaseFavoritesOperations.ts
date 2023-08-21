@@ -20,6 +20,7 @@ export const getFavoritesFromFirebase = (userId: string): Promise<IProduct[]> =>
             const favoritesFromFirebase: IProduct[] = snapshot.val();
             if (favoritesFromFirebase) {
                 const favoritesArray = Object.values(favoritesFromFirebase);
+                console.log(favoritesArray)
                 resolve(favoritesArray);
             } else {
                 resolve([]);
