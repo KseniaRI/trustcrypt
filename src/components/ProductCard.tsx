@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 import { addFavorite, deleteFavorite } from '../redux/favorites/favoritesSlice';
 import { addToFirebaseFavorites, removeFromFirebaseFavorites } from '../services/firebase/firebaseFavoritesOperations';
 import { IProduct } from '../types';
+import { Skeleton } from 'antd';
 
 interface ProductCardProps {
     product: IProduct;
@@ -26,6 +27,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const initialIsFavorite = favorites.some(fav => fav.id === product.id);
 
     const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, [])
 
     useEffect(() => {
         setIsFavorite(initialIsFavorite);
@@ -54,11 +60,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
     }
 
     const preferenceIcon = (isFavorite && isAuth) ? <FcLike size={24} /> : <FcLikePlaceholder size={24} />;
-
+    const image = !isLoading ? <img className='productCardImg' src={imgSrc} alt={name} /> : <Skeleton.Image active={!!isLoading} />;
+    
     return (
         <div className="productCard">
             <div className='productCardImgWrap'>
-                <img className='productCardImg' src={imgSrc} alt={name} />
+                {image}
                 <span
                     className='productCardFavorite'
                     onClick={()=>onPreferenceIconClick(product)}

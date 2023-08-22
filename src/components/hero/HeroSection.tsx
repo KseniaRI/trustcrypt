@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { IContent } from '../../types';
+import { Skeleton } from 'antd';
 
 interface HeroSectionProps {
     content: IContent;
@@ -7,6 +9,13 @@ interface HeroSectionProps {
 
 const HeroSection = ({ content }: HeroSectionProps) => {
     const { direction, title, text, src } = content;
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, [])
+
+    const image = !isLoading ? <img className='heroImg' src={src} alt="Cybersecurity"/> : <Skeleton.Image active={!!isLoading} />;
 
     return (
         <div className={`heroSection ${direction}`}>
@@ -18,7 +27,7 @@ const HeroSection = ({ content }: HeroSectionProps) => {
                 </NavLink>
             </div>
             <div className='heroImgWrap'>
-                <img className='heroImg' src={src} alt="Cybersecurity"/>
+                {image}
             </div>
         </div>
     )
