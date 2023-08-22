@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { IContent } from '../../types';
 import { Skeleton } from 'antd';
@@ -9,13 +8,10 @@ interface HeroSectionProps {
 
 const HeroSection = ({ content }: HeroSectionProps) => {
     const { direction, title, text, src } = content;
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        setIsLoading(false);
-    }, [])
-
-    const image = !isLoading ? <img className='heroImg' src={src} alt="Cybersecurity"/> : <Skeleton.Image active={!!isLoading} />;
+    const image = !!src ?
+        <img className='heroImg' src={src} alt="Cybersecurity" /> :
+        <Skeleton.Image active={!src} />;
 
     return (
         <div className={`heroSection ${direction}`}>

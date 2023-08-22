@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect} from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc';
 import { prodImages } from '../assets/images/pictures';
 import { useAuth } from '../hooks/use-auth';
@@ -23,15 +23,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const { path, name, description } = product;
     const imgName: keyof TProdImages = path;
     const imgSrc = prodImages[imgName];
+   
 
     const initialIsFavorite = favorites.some(fav => fav.id === product.id);
 
     const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setIsLoading(false);
-    }, [])
 
     useEffect(() => {
         setIsFavorite(initialIsFavorite);
@@ -60,9 +56,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
     }
 
     const preferenceIcon = (isFavorite && isAuth) ? <FcLike size={24} /> : <FcLikePlaceholder size={24} />;
-    const image = !isLoading ? <img className='productCardImg' src={imgSrc} alt={name} /> : <Skeleton.Image active={!!isLoading} />;
+
+    const image = imgSrc ?
+        <img className='productCardImg' src={imgSrc} alt={name} /> :
+        <Skeleton.Image active={!imgSrc} />;
     
     return (
+
         <div className="productCard">
             <div className='productCardImgWrap'>
                 {image}
@@ -70,7 +70,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     className='productCardFavorite'
                     onClick={()=>onPreferenceIconClick(product)}
                 >
-                   {preferenceIcon} 
+                    {preferenceIcon} 
                 </span>
             </div>
             <h3 className='productCardName'>{name}</h3>
