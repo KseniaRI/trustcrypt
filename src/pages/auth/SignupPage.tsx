@@ -1,4 +1,5 @@
 import { Navigate } from 'react-router-dom';
+ import { toast } from 'react-toastify';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import { setUser } from '../../redux/user/userSlice';
@@ -21,7 +22,7 @@ const SignupPage = () => {
                 addUserToFirebase(userData);
                 dispatch(setUser(userData));
                 userData.id && localStorage.setItem("userId", userData.id);
-                alert(`Создан новый аккаунт с ${userData.email}`);
+                toast.success(`Создан новый аккаунт с ${userData.email}`);
             }
         });
     };

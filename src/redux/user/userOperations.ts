@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getUserFromFirebase } from "../../services/firebase/firebaseUserOperations";
 import { IAccessCredentials, IUser } from "../../types";
@@ -31,7 +32,7 @@ export const createNewUserViaFirebase = async (values: IAccessCredentials):Promi
         return userData;
     } catch (error: any) {
         console.log(error);
-        alert(error.message)
+        toast.error(error.message)
         return null;
     }
 };
@@ -53,7 +54,7 @@ export const authoriseUserViaFirebase = async (values: IAccessCredentials):Promi
         return userData;
     } catch (error) {
         console.error(error);
-        alert("Пользоатель не существует")
+        toast.error("Пользоатель не существует");
         return null;
     }
 };

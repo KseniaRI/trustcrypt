@@ -8,6 +8,7 @@ import { addFavorite } from "../redux/favorites/favoritesSlice";
 import { fetchFavoritesFromFirebase } from "../redux/favorites/favoritesOperations";
 import Header from "./header/Header";
 import Footer from "./Footer";
+import { ToastContainer } from "react-toastify";
 
 const SharedLayout = () => {
     const dispatch = useAppDispatch();
@@ -28,7 +29,8 @@ const SharedLayout = () => {
             <Suspense fallback={<Spin size="large"/>}>
                 <Outlet/>
             </Suspense>
-            <Footer/>
+            <Footer />
+            <ToastContainer />
         </div>
     )
 }
