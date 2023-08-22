@@ -23,7 +23,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const { path, name, description } = product;
     const imgName: keyof TProdImages = path;
     const imgSrc = prodImages[imgName];
-   
 
     const initialIsFavorite = favorites.some(fav => fav.id === product.id);
 
