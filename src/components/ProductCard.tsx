@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 import { addFavorite, deleteFavorite } from '../redux/favorites/favoritesSlice';
 import { addToFirebaseFavorites, removeFromFirebaseFavorites } from '../services/firebase/firebaseFavoritesOperations';
 import { IProduct } from '../types';
-import { Skeleton } from 'antd';
+import { Popover, Skeleton } from 'antd';
 
 interface ProductCardProps {
     product: IProduct;
@@ -65,12 +65,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="productCard">
             <div className='productCardImgWrap'>
                 {image}
-                <span
-                    className='productCardFavorite'
-                    onClick={()=>onPreferenceIconClick(product)}
-                >
-                    {preferenceIcon} 
-                </span>
+                <Popover content="Добавить в избранное" >
+                    <span
+                        className='productCardFavorite'
+                        onClick={()=>onPreferenceIconClick(product)}
+                    >
+                        {preferenceIcon} 
+                    </span>
+                </Popover>
             </div>
             <h3 className='productCardName'>{name}</h3>
             <p className='productCardDescription'>{description}</p>
