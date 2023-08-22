@@ -29,8 +29,9 @@ export const createNewUserViaFirebase = async (values: IAccessCredentials):Promi
           };
 
         return userData;
-    } catch (error) {
-        console.error(error);
+    } catch (error: any) {
+        console.log(error);
+        alert(error.message)
         return null;
     }
 };
