@@ -13,7 +13,7 @@ const Article = ({ article }: ArticleProps) => {
     const visibleTextLines = window.innerWidth >= 768 ? 10 : 5;
 
     return (
-        <div className='article'>
+        <article className='article'>
             <h3 className="articleTitle">{title}</h3>
             <ShowMoreText
                 lines={visibleTextLines}
@@ -27,7 +27,7 @@ const Article = ({ article }: ArticleProps) => {
                 {description}
             </ShowMoreText>
             <p className='articleLabel'>{date}</p>
-        </div>
+        </article>
     )
 }
 
