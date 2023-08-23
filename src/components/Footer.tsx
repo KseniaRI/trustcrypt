@@ -1,8 +1,8 @@
 const Footer = () => {
     return (
-        <div className='footer'>
+        <footer className='footer'>
             <p className='footerText'>© 2022 LLC Trustcrypt. All rights reserved.</p>
-        </div>
+        </footer>
     )
 }
 
