@@ -36,7 +36,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         setIsFavorite(prev => !prev);
     };
 
-    const onPreferenceIconClick = (product: IProduct) => {
+    const onPreferenceIconClick = () => {
         if (!isAuth) {
             alert("Авторизуйтесь, чтобы добавить продукт в избранное");
             return null;
@@ -68,7 +68,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 <Popover content="Добавить в избранное" >
                     <span
                         className='productCardFavorite'
-                        onClick={()=>onPreferenceIconClick(product)}
+                        onClick={onPreferenceIconClick}
                     >
                         {preferenceIcon} 
                     </span>

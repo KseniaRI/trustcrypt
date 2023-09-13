@@ -4,6 +4,7 @@
     border-radius: $radi-btn;
     font-size: $btn-font-size;
     border: none;
+    cursor: pointer;
 }
 
 %social-btn {
@@ -11,4 +12,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
