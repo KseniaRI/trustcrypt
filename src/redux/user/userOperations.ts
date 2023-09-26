@@ -1,60 +1,79 @@
-import { toast } from 'react-toastify';
+ import { toast } from 'react-toastify';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getUserFromFirebase } from "../../services/firebase/firebaseUserOperations";
+import { firebaseAddUser, firebaseGetUser} from "../../services/firebase/firebaseUserOperations";
 import { IAccessCredentials, IUser } from "../../types";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchUserFromFirebase = async (userId: string): Promise<IUser> => {
-    try {
-        if (userId) {
-            const userFromFirebase = await getUserFromFirebase(userId);
+export const fetchUserFromFirebase = createAsyncThunk<IUser, string, { rejectValue: string }>(
+    "user/fetchUserFromFirebase",
+    async (userId, {rejectWithValue}) => {
+        try {
+            const userFromFirebase = await firebaseGetUser(userId);
+            if (!userFromFirebase) {
+                throw new Error('Server Error')
+            }
             return userFromFirebase;
+        } catch (error: any) {
+            return rejectWithValue(error.message)
         }
-    } catch (error) {
-        console.log(error);
     }
-    throw new Error();
-};
+)
 
-export const createNewUserViaFirebase = async (values: IAccessCredentials):Promise<IUser | null> => {
-    const { email, password } = values;
-    const auth = getAuth();
+export const createNewUserViaFirebase = createAsyncThunk<IUser, IAccessCredentials, { rejectValue: string }>(
+    "user/createNewUserViaFirebase",
+    async (values, {rejectWithValue})  => {
+        try {
+            const { email, password } = values;
+            const auth = getAuth();
+            const { user } = await createUserWithEmailAndPassword(auth, email, password);
 
-    try {
-        const { user } = await createUserWithEmailAndPassword(auth, email, password);
-        const accessToken = await user.getIdToken();
+            if (!user) {
+                throw new Error('Registration server error')
+            }
 
-        const userData = {
-          email: user.email,
-          id: user.uid,
-          token: accessToken,
-          };
+            const accessToken = await user.getIdToken();
+            
+            const userData = {
+              email: user.email,
+              id: user.uid,
+              token: accessToken,
+            };
 
-        return userData;
-    } catch (error: any) {
-        console.log(error);
-        toast.error(error.message)
-        return null;
+            localStorage.setItem("userId", userData.id);
+            await firebaseAddUser(userData);
+            toast.success(`Создан новый аккаунт с ${userData.email}`);
+
+            return userData;
+        } catch (error: any) {
+            return rejectWithValue(error.message);
+        }
     }
-};
+)
 
-export const authoriseUserViaFirebase = async (values: IAccessCredentials):Promise<IUser | null>  => {
-    const { email, password } = values;
-    const auth = getAuth();
+export const authoriseUserViaFirebase = createAsyncThunk<IUser, IAccessCredentials, { rejectValue: string }>(
+    "user/authoriseUserViaFirebase",
+    async (values, {rejectWithValue}) => {
+        try {
+            const { email, password } = values;
+            const auth = getAuth();
+            const { user } = await signInWithEmailAndPassword(auth, email, password);
 
-    try {
-        const { user } = await signInWithEmailAndPassword(auth, email, password);
-        const accessToken = await user.getIdToken();
+            if (!user) {
+                throw new Error('Authorisation server error');
+            }
+            const accessToken = await user.getIdToken();
+            
+            const userData = {
+                email: user.email,
+                id: user.uid,
+                token: accessToken,
+            };
 
-        const userData = {
-          email: user.email,
-          id: user.uid,
-          token: accessToken,
-          };
+            localStorage.setItem("userId", userData.id);
 
-        return userData;
-    } catch (error) {
-        console.error(error);
-        toast.error("Пользоатель не существует");
-        return null;
+            return userData;
+        } catch (error: any) {
+            return rejectWithValue(error.message);
+        }  
     }
-};
+)

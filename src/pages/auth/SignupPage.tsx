@@ -1,35 +1,33 @@
+import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
- import { toast } from 'react-toastify';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input } from 'antd';
-import { setUser } from '../../redux/user/userSlice';
-import { useAuth } from '../../hooks/use-auth';
+import { Button, Form, Input, Spin } from 'antd';
+// import { useAuth } from '../../hooks/use-auth';
 import { createNewUserViaFirebase } from '../../redux/user/userOperations';
-import { useAppDispatch } from '../../hooks/redux-hooks';
-import { addUserToFirebase } from '../../services/firebase/firebaseUserOperations';
-import { IAccessCredentials } from '../../types';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
+import { IAccessCredentials, Status } from '../../types';
 import Container from '../../components/Container';
+import { toast } from 'react-toastify';
 
 const SignupPage = () => {
 
     const dispatch = useAppDispatch();
-
-    const { isAuth } = useAuth();
-
+    // const { isAuth } = useAuth();
+    const { error, status } = useAppSelector(state => state.user);
+    
     const onFinish = (values: IAccessCredentials) => {
-        createNewUserViaFirebase(values).then(userData => {
-            if (userData) {
-                addUserToFirebase(userData);
-                dispatch(setUser(userData));
-                userData.id && localStorage.setItem("userId", userData.id);
-                toast.success(`Создан новый аккаунт с ${userData.email}`);
-            }
-        });
-    };
+        dispatch(createNewUserViaFirebase(values));
+    }
+    
+    useEffect(() => {
+        if (error) {
+            toast.error(error);
+        }
+    }, [error])
 
     return (
         <div className='auth'>
-            {isAuth && <Navigate to={'/'}/> }
+            {status === Status.RESOLVED && <Navigate to={'/'} />}
             <Container>
                 <div className='authOptions'>
                     <Form
@@ -92,7 +90,8 @@ const SignupPage = () => {
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" className="authFormButton">
-                              Зарегистрироваться
+                                {status === Status.LOADING && <Spin size='small'/>}
+                                Зарегистрироваться
                             </Button>
                         </Form.Item>
                     </Form>

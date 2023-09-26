@@ -30,3 +30,9 @@ export interface IAccessCredentials {
     email: string,
     password: string
 }
+
+export enum Status {
+    'LOADING' = 'LOADING',
+    'REJECTED' = 'REJECTED',
+    'RESOLVED' = 'RESOLVED'
+}

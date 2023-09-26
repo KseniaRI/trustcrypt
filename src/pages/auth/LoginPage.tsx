@@ -1,29 +1,32 @@
+import { useEffect } from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Spin } from 'antd';
 import Container from '../../components/Container';
 import { NavLink, Navigate} from 'react-router-dom';
-import { setUser } from '../../redux/user/userSlice';
-import { useAuth } from '../../hooks/use-auth';
-import { useAppDispatch } from '../../hooks/redux-hooks';
-import { IAccessCredentials } from '../../types';
+// import { useAuth } from '../../hooks/use-auth';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
+import { IAccessCredentials, Status } from '../../types';
 import { authoriseUserViaFirebase } from '../../redux/user/userOperations';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
-  const { isAuth } = useAuth();
-  
+  // const { isAuth } = useAuth();
+  const { status, error } = useAppSelector(state => state.user);
+
+  useEffect(() => {
+    if (error) {
+      toast(error)
+    }
+  }, [error])
+
   const onFinish = (values: IAccessCredentials) => {
-    authoriseUserViaFirebase(values).then(userData => {
-      if (userData) {
-        dispatch(setUser(userData));
-        userData.id && localStorage.setItem("userId", userData.id);
-      }
-    })
-  };
+    dispatch(authoriseUserViaFirebase(values));
+  }
 
   return (
     <div className='auth'>
-      {isAuth && <Navigate to={'/'}/> }
+      {status === Status.RESOLVED && <Navigate to={'/'}/> }
       <Container>
         <div className='authOptions'>
           <Form
@@ -61,6 +64,7 @@ const LoginPage = () => {
             </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit" className="authFormButton">
+                {status === Status.LOADING && <Spin size='small'/>}
                 Войти
               </Button>
             </Form.Item>

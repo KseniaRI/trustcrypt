@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../hooks/use-auth";
 import { useAppSelector } from "../hooks/redux-hooks";
 import Container from "../components/Container"
 import ProductsGrid from "../components/ProductsGrid";
+import { Status } from "../types";
+import { Spin } from "antd";
 
 const FavoritesPage = () => {
+    const { id: userId } = useAppSelector(state => state.user.userData);
+    const {favorites, status} = useAppSelector(state => state.products);
     
-    const { isAuth } = useAuth();
-
-    const favorites = useAppSelector(state => state.products.favorites);
 
     const authContent = favorites.length > 0 ?
         <ProductsGrid gridItems={favorites} /> :
@@ -21,12 +21,13 @@ const FavoritesPage = () => {
         </NavLink>
     </>;
 
-    const content = isAuth ? authContent : notAuthContent;
+    const content = userId ? authContent : notAuthContent;
 
     return (
         <div className='favorites'>
             <Container>
                 <h3 className='favoritesTitle'>Понравившиеся продукты:</h3>
+                { status === Status.LOADING && <Spin size="large" style={{color: "white", marginLeft: '50%'}}/>}
                 {content}
             </Container>
         </div>

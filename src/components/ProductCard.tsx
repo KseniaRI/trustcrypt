@@ -1,12 +1,10 @@
 import { useState, useEffect} from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc';
 import { prodImages } from '../assets/images/pictures';
-import { useAuth } from '../hooks/use-auth';
 import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
-import { addFavorite, deleteFavorite } from '../redux/favorites/favoritesSlice';
-import { addToFirebaseFavorites, removeFromFirebaseFavorites } from '../services/firebase/firebaseFavoritesOperations';
 import { IProduct } from '../types';
 import { Popover, Skeleton } from 'antd';
+import { addFavoriteToFirebase, deleteFavoriteFromFirebase } from '../redux/favorites/favoritesOperations';
 
 interface ProductCardProps {
     product: IProduct;
@@ -15,7 +13,7 @@ interface ProductCardProps {
 type TProdImages = typeof prodImages;
 
 const ProductCard = ({ product }: ProductCardProps) => {
-    const { isAuth, id: userId } = useAuth();
+    const {id: userId } = useAppSelector(state => state.user.userData);
 
     const dispatch = useAppDispatch();
     const favorites = useAppSelector(state => state.products.favorites);
@@ -36,39 +34,42 @@ const ProductCard = ({ product }: ProductCardProps) => {
         setIsFavorite(prev => !prev);
     };
 
-    const onPreferenceIconClick = () => {
-        if (!isAuth) {
+    const onPreferenceIconClick = (product: IProduct) => {
+        const { id: productId } = product;
+        if (!userId) {
             alert("Авторизуйтесь, чтобы добавить продукт в избранное");
             return null;
         }
 
         if (userId) {
             if (isFavorite) {
-                dispatch(deleteFavorite(product.id));
-                removeFromFirebaseFavorites(userId, product.id);
+                dispatch(deleteFavoriteFromFirebase({ userId, productId }));
             } else {
-                dispatch(addFavorite(product));
-                addToFirebaseFavorites(userId, product);
+                dispatch(addFavoriteToFirebase({ userId, product }));
             }
             togglePreferenceIcon();
         } 
     }
 
-    const preferenceIcon = (isFavorite && isAuth) ? <FcLike size={24} /> : <FcLikePlaceholder size={24} />;
+    const preferenceIcon = (isFavorite && userId) ?
+        <FcLike size={24} /> :
+        <FcLikePlaceholder size={24} />;
 
     const image = imgSrc ?
         <img className='productCardImg' src={imgSrc} alt={name} /> :
         <Skeleton.Image active={!imgSrc} />;
+    
+    const popoverContent = isFavorite ? 'Удалить из избранных' : 'Добавить в избранное';
     
     return (
 
         <div className="productCard">
             <div className='productCardImgWrap'>
                 {image}
-                <Popover content="Добавить в избранное" >
+                <Popover content={popoverContent}>
                     <span
                         className='productCardFavorite'
-                        onClick={onPreferenceIconClick}
+                        onClick={()=>onPreferenceIconClick(product)}
                     >
                         {preferenceIcon} 
                     </span>

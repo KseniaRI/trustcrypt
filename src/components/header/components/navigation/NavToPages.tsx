@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../../../hooks/use-auth';
+// import { useAuth } from '../../../../hooks/use-auth';
 import { IoIosLogOut } from 'react-icons/io';
 import { removeUser } from '../../../../redux/user/userSlice';
-import { useAppDispatch } from '../../../../hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '../../../../hooks/redux-hooks';
 import { clearFavorites } from '../../../../redux/favorites/favoritesSlice';
+import { Status } from '../../../../types';
 
 
 enum PathToPage {
@@ -29,8 +30,9 @@ enum PageTraduction {
     
 
 const NavToPages = () => {
-    const { isAuth } = useAuth();
+    // const { isAuth } = useAuth();
     const dispatch = useAppDispatch();
+    const { status } = useAppSelector(state => state.user);
     
     const pages: Page[] = Object.values(Page);
 
@@ -53,7 +55,7 @@ const NavToPages = () => {
         )
     });
 
-    const authNavItem = isAuth  ?
+    const authNavItem = status === Status.RESOLVED  ?
         <IoIosLogOut size={30} onClick={() => onLogoutClick()} /> :
         <NavLink to={"/login"}>Войти</NavLink>;
 
