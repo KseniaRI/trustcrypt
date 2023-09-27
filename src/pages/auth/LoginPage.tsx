@@ -3,22 +3,22 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Spin } from 'antd';
 import Container from '../../components/Container';
 import { NavLink, Navigate} from 'react-router-dom';
-// import { useAuth } from '../../hooks/use-auth';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
-import { IAccessCredentials, Status } from '../../types';
 import { authoriseUserViaFirebase } from '../../redux/user/userOperations';
+import { getUserError, getUserStatus } from '../../redux/user/userSelectors';
+import { IAccessCredentials, Status } from '../../types';
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
-  // const { isAuth } = useAuth();
-  const { status, error } = useAppSelector(state => state.user);
+  const userStatus = useAppSelector(getUserStatus);
+  const userError = useAppSelector(getUserError);
 
   useEffect(() => {
-    if (error) {
-      toast(error)
+    if (userError) {
+      toast(userError);
     }
-  }, [error])
+  }, [userError])
 
   const onFinish = (values: IAccessCredentials) => {
     dispatch(authoriseUserViaFirebase(values));
@@ -26,7 +26,7 @@ const LoginPage = () => {
 
   return (
     <div className='auth'>
-      {status === Status.RESOLVED && <Navigate to={'/'}/> }
+      {userStatus === Status.RESOLVED && <Navigate to={'/'}/> }
       <Container>
         <div className='authOptions'>
           <Form
@@ -64,7 +64,7 @@ const LoginPage = () => {
             </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit" className="authFormButton">
-                {status === Status.LOADING && <Spin size='small'/>}
+                {userStatus === Status.LOADING && <Spin size='small'/>}
                 Войти
               </Button>
             </Form.Item>

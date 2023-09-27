@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Spin } from 'antd';
-// import { useAuth } from '../../hooks/use-auth';
 import { createNewUserViaFirebase } from '../../redux/user/userOperations';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
+import { getUserError, getUserStatus } from '../../redux/user/userSelectors';
 import { IAccessCredentials, Status } from '../../types';
 import Container from '../../components/Container';
 import { toast } from 'react-toastify';
@@ -12,22 +12,22 @@ import { toast } from 'react-toastify';
 const SignupPage = () => {
 
     const dispatch = useAppDispatch();
-    // const { isAuth } = useAuth();
-    const { error, status } = useAppSelector(state => state.user);
+    const userStatus = useAppSelector(getUserStatus);
+    const userError = useAppSelector(getUserError);
     
     const onFinish = (values: IAccessCredentials) => {
         dispatch(createNewUserViaFirebase(values));
     }
     
     useEffect(() => {
-        if (error) {
-            toast.error(error);
+        if (userError) {
+            toast.error(userError);
         }
-    }, [error])
+    }, [userError])
 
     return (
         <div className='auth'>
-            {status === Status.RESOLVED && <Navigate to={'/'} />}
+            {userStatus === Status.RESOLVED && <Navigate to={'/'} />}
             <Container>
                 <div className='authOptions'>
                     <Form
@@ -90,7 +90,7 @@ const SignupPage = () => {
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" className="authFormButton">
-                                {status === Status.LOADING && <Spin size='small'/>}
+                                {userStatus === Status.LOADING && <Spin size='small'/>}
                                 Зарегистрироваться
                             </Button>
                         </Form.Item>

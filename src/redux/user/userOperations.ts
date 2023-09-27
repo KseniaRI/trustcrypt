@@ -10,11 +10,11 @@ export const fetchUserFromFirebase = createAsyncThunk<IUser, string, { rejectVal
         try {
             const userFromFirebase = await firebaseGetUser(userId);
             if (!userFromFirebase) {
-                throw new Error('Server Error')
+                throw new Error('Server Error');
             }
             return userFromFirebase;
         } catch (error: any) {
-            return rejectWithValue(error.message)
+            return rejectWithValue(error.message);
         }
     }
 )
@@ -28,7 +28,7 @@ export const createNewUserViaFirebase = createAsyncThunk<IUser, IAccessCredentia
             const { user } = await createUserWithEmailAndPassword(auth, email, password);
 
             if (!user) {
-                throw new Error('Registration server error')
+                throw new Error('Registration server error');
             }
 
             const accessToken = await user.getIdToken();
@@ -62,7 +62,6 @@ export const authoriseUserViaFirebase = createAsyncThunk<IUser, IAccessCredentia
                 throw new Error('Authorisation server error');
             }
             const accessToken = await user.getIdToken();
-            
             const userData = {
                 email: user.email,
                 id: user.uid,
@@ -70,7 +69,6 @@ export const authoriseUserViaFirebase = createAsyncThunk<IUser, IAccessCredentia
             };
 
             localStorage.setItem("userId", userData.id);
-
             return userData;
         } catch (error: any) {
             return rejectWithValue(error.message);

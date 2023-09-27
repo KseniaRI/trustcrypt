@@ -1,40 +1,16 @@
 import { NavLink } from 'react-router-dom';
-// import { useAuth } from '../../../../hooks/use-auth';
 import { IoIosLogOut } from 'react-icons/io';
 import { removeUser } from '../../../../redux/user/userSlice';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux-hooks';
 import { clearFavorites } from '../../../../redux/favorites/favoritesSlice';
-import { Status } from '../../../../types';
+import { IPage, Status } from '../../../../types';
+import { getUserStatus } from '../../../../redux/user/userSelectors';
 
-
-enum PathToPage {
-    "HOME" = "/",
-    "NEWS" = "/news",
-    "PRODUCTS" = "/products",
-    "FAVORITES" = "/favorites",
-};
-
-enum Page {
-    "HOME" = "HOME",
-    "NEWS" = "NEWS",
-    "PRODUCTS" = "PRODUCTS",
-    "FAVORITES" = "FAVORITES",
-};
-
-enum PageTraduction {
-    "HOME" = "Главная",
-    "NEWS" = "Новости",
-    "PRODUCTS" = "Продукты",
-    "FAVORITES" = "Избранные",
-};
-    
+const pages: IPage[] = require('../../../../utils/pages.json');
 
 const NavToPages = () => {
-    // const { isAuth } = useAuth();
     const dispatch = useAppDispatch();
-    const { status } = useAppSelector(state => state.user);
-    
-    const pages: Page[] = Object.values(Page);
+    const userStatus = useAppSelector(getUserStatus);
 
     const onLogoutClick = () => {
         dispatch(removeUser());
@@ -43,8 +19,8 @@ const NavToPages = () => {
     };
 
     const navItems = pages.map(page => {
-        const path = PathToPage[page];
-        const pageName = PageTraduction[page];
+        const path = page.path;
+        const pageName = page.name;
 
         return (
             <li key={path} className="navItem">
@@ -55,7 +31,7 @@ const NavToPages = () => {
         )
     });
 
-    const authNavItem = status === Status.RESOLVED  ?
+    const authNavItem = userStatus === Status.RESOLVED  ?
         <IoIosLogOut size={30} onClick={() => onLogoutClick()} /> :
         <NavLink to={"/login"}>Войти</NavLink>;
 

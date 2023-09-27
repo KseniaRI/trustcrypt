@@ -1,10 +1,12 @@
 import { useState, useEffect} from 'react'
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc';
-import { prodImages } from '../assets/images/pictures';
-import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
-import { IProduct } from '../types';
 import { Popover, Skeleton } from 'antd';
+import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 import { addFavoriteToFirebase, deleteFavoriteFromFirebase } from '../redux/favorites/favoritesOperations';
+import { getUserData } from '../redux/user/userSelectors';
+import { getFavorites } from '../redux/favorites/favoritesSelectors';
+import { IProduct } from '../types';
+import { prodImages } from '../assets/images/pictures';
 
 interface ProductCardProps {
     product: IProduct;
@@ -13,10 +15,9 @@ interface ProductCardProps {
 type TProdImages = typeof prodImages;
 
 const ProductCard = ({ product }: ProductCardProps) => {
-    const {id: userId } = useAppSelector(state => state.user.userData);
-
     const dispatch = useAppDispatch();
-    const favorites = useAppSelector(state => state.products.favorites);
+    const favorites = useAppSelector(getFavorites);
+    const { id: userId } = useAppSelector(getUserData);
     
     const { path, name, description } = product;
     const imgName: keyof TProdImages = path;

@@ -3,15 +3,18 @@ import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom';
 import { Spin } from 'antd';
 import { useAppDispatch, useAppSelector } from "../hooks/redux-hooks";
-import Header from "./header/Header";
-import Footer from "./Footer";
 import { ToastContainer } from "react-toastify";
 import { fetchUserFromFirebase } from "../redux/user/userOperations";
 import { fetchFavoritesFromFirebase } from "../redux/favorites/favoritesOperations";
+import { getUserData, getUserStatus } from "../redux/user/userSelectors";
+import { getFavoritesStatus } from "../redux/favorites/favoritesSelectors";
+import Header from "./header/Header";
+import Footer from "./Footer";
 
 const SharedLayout = () => {
-    const { status: userStatus, userData } = useAppSelector(state => state.user);
-    const { status: favoritesStatus } = useAppSelector(state => state.products);
+    const userStatus = useAppSelector(getUserStatus);
+    const userData = useAppSelector(getUserData);
+    const favoritesStatus = useAppSelector(getFavoritesStatus);
 
     const dispatch = useAppDispatch();  
     const localStorageUserId = localStorage.getItem('userId');

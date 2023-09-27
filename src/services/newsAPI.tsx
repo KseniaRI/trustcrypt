@@ -5,7 +5,7 @@ interface INewsResponce {
   results: IArticle[];
 }
 
-const API_KEY = 'pub_26682654cfea1a0deee3410ba05e97dd63239'
+const API_KEY = 'pub_26682654cfea1a0deee3410ba05e97dd63239';
 
 export const fetchNews = async (): Promise<IArticle[]> => {
     try {

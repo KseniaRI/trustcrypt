@@ -36,3 +36,8 @@ export enum Status {
     'REJECTED' = 'REJECTED',
     'RESOLVED' = 'RESOLVED'
 }
+
+export interface IPage {
+    name: string,
+    path:string
+}

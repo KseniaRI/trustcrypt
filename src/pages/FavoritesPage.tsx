@@ -1,15 +1,26 @@
+import { useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../hooks/redux-hooks";
 import Container from "../components/Container"
 import ProductsGrid from "../components/ProductsGrid";
 import { Status } from "../types";
 import { Spin } from "antd";
+import { getUserData } from "../redux/user/userSelectors";
+import { getFavorites, getFavoritesError, getFavoritesStatus } from "../redux/favorites/favoritesSelectors";
+import { toast } from 'react-toastify';
 
 const FavoritesPage = () => {
-    const { id: userId } = useAppSelector(state => state.user.userData);
-    const {favorites, status} = useAppSelector(state => state.products);
-    
+    const { id: userId } = useAppSelector(getUserData);
+    const favorites = useAppSelector(getFavorites);
+    const favoritesStatus = useAppSelector(getFavoritesStatus);
+    const favoritesError = useAppSelector(getFavoritesError);
 
+    useEffect(() => {
+        if (favoritesError) {
+            toast(favoritesError);
+        }
+    }, [favoritesError]);
+    
     const authContent = favorites.length > 0 ?
         <ProductsGrid gridItems={favorites} /> :
         <p className="favoritesTxt">Вы ещё не добавили ни одного продукта</p>;
@@ -27,7 +38,7 @@ const FavoritesPage = () => {
         <div className='favorites'>
             <Container>
                 <h3 className='favoritesTitle'>Понравившиеся продукты:</h3>
-                { status === Status.LOADING && <Spin size="large" style={{color: "white", marginLeft: '50%'}}/>}
+                { favoritesStatus === Status.LOADING && <Spin size="large" style={{color: "white", marginLeft: '50%'}}/>}
                 {content}
             </Container>
         </div>
